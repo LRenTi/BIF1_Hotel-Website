@@ -1,0 +1,61 @@
+/* Eigenes Stylesheet */
+*{
+    font-family: sans-serif;
+}
+.bc-blue{
+    background-color:#0f2453;
+}
+.btn-blue{
+    background-color: #0f2453!important;
+    color:white!important;
+}
+.btn-blue:hover{
+    background-color: #3e4f75!important;
+    border-color: #3e4f75;
+}
+.btn-white{
+    color:white!important;
+}
+.btn-white:hover{
+    background-color: #3e4f75!important;
+    border-color: #3e4f75;
+}
+.nav-point{
+	display: block;
+	padding: .5rem 1rem;
+	color: white;
+	text-decoration: none;
+    font-weight:bold;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.nav-point:hover{
+    color:#6f7b97;
+    border-bottom: #3e4f75;
+    border-width: 3px;
+}
+.back_area {
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+.back_img1 {
+    background-image: url(content/banner/home-banner.png);
+}
+.back_img2 {
+    background-image: url(content/banner/home-banner.png);
+}
+.back_img3 {
+    background-image: url(content/banner/home-banner.png);
+}
+.header-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+}
+.card-overlay 
+{
+    background: rgba(0, 0, 0, 0.5);
+}

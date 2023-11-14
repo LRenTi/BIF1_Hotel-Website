@@ -6,25 +6,29 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
-    <header class="border-bottom">
-        <!--Menu Start-->
-        <div class="container header-area">
-            <div class="main-menu d-flex flex-wrap align-items-end justify-content-center justify-content-lg-start mb-2">
-                <div class="text-center d-inline bc-blue pt-2">
+    <header>
+        <!-- Logo -->
+        <div class="bc-blue">
+            <div class="d-flex container">
+                <div class="d-flex pt-3 pb-3 justify-content-start">
                     <img class="img-fluid" alt="Logo" src="content\logo\LogoHotel.svg" width="100">
-                    <h5 class="text-white" style="font-weight:bold">Hotel</h5>
+                    <h5 class="font-weight-bold text-white d-flex align-self-center" style="font-size:50px;">Hotel</h5>
                 </div>
-                <ul class="nav col-12 col-lg-auto ms-lg-auto mb-2 justify-content-center ms-2 mr-3">
-                    <li><a href="index.php" class="nav-point px-2">Home</a></li>
-                    <li><a href="index.php?faqs=true" class="nav-point px-2">FAQs</a></li>
-                    <li><a href="index.php?impressum=true" class="nav-point px-2 ">Impressum</a></li>
-                </ul>
-                <!--Menu Ends-->
-                <!--Login/Register Start-->
-                <div class="text-end mb-2 d-none d-lg-block">
-                    <a href="index.php?register=true" type="button" class="btn btn-outline-secondary btn-white">Register</a>
-                    <a type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#Login">Login</a>
+                <!--Menu Start-->
+                <div class="d-flex flex-grow-1 align-items-end justify-content-end">
+                    <ul class="nav col-12 col-lg-auto ms-lg-auto mb-2 ms-2 mr-3">
+                        <li><a href="index.php" class="nav-point px-2">Home</a></li>
+                        <li><a href="index.php?faqs=true" class="nav-point px-2">FAQs</a></li>
+                        <li><a href="index.php?impressum=true" class="nav-point px-2 ">Impressum</a></li>
+                    </ul>
+                    <!--Menu Ends-->
+                    <!--Login/Register Start-->
+                    <div class="text-end mb-2 d-none d-lg-block">
+                        <a href="index.php?register=true" type="button" class="btn btn-outline">Register</a>
+                        <a type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#Login">Login</a>
+                    </div>
                 </div>
+            </div>
                 <!--Login/Register Ends-->
             </div>
         </div>

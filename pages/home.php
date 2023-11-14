@@ -7,6 +7,8 @@
         <h2 class="text-white bold">Willkommen im L&A Hotel!</h2>
     </div>
     <body>
-        <p> HOME SEITE </p>
+        <p> HOME SEITE 
+            TESTerich hallo
+        </p>
     </body>
 </html>

@@ -14,11 +14,21 @@
     border-color: #3e4f75;
 }
 .btn-white{
-    color:white!important;
+    color:#0f2453!important;
+    background-color: white!important;
 }
 .btn-white:hover{
-    background-color: #3e4f75!important;
-    border-color: #3e4f75;
+    background-color: #ffffffd0!important;
+    border-color: #ffffffd0!important;
+}
+.btn-outline{
+    border:1px solid white!important;
+    color:white!important;
+}
+.btn-outline:hover{
+    border:1px solid white!important;
+    background-color:white!important;
+    color:#0f2453!important;
 }
 .nav-point{
 	display: block;

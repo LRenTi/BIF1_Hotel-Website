@@ -15,19 +15,19 @@
 }
 .btn-white{
     color:#0f2453!important;
-    background-color: white!important;
+    background-color: #f0dbac!important;
 }
 .btn-white:hover{
-    background-color: #ffffffd0!important;
-    border-color: #ffffffd0!important;
+    background-color: #f0dbac!important;
+    border-color: #f0dbac!important;
 }
 .btn-outline{
-    border:1px solid white!important;
-    color:white!important;
+    border:1px solid #f0dbac!important;
+    color:#f0dbac!important;
 }
 .btn-outline:hover{
-    border:1px solid white!important;
-    background-color:white!important;
+    border:1px solid #f0dbac!important;
+    background-color:#f0dbac!important;
     color:#0f2453!important;
 }
 .nav-point{
@@ -49,7 +49,10 @@
     text-align: center;
 }
 .back_img1 {
-    background-image: url(content/banner/home-banner.png);
+    background-image: url(content\pictures\StockHotel.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .back_img2 {
     background-image: url(content/banner/home-banner.png);
@@ -69,3 +72,11 @@
 {
     background: rgba(0, 0, 0, 0.5);
 }
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

@@ -4,8 +4,8 @@
             Impressum - L&A Hotel
         </title>
     </head>
-    <div class="back_area back_img2 d-flex align-items-center justify-content-center">
-        <h1 class="d-flex text-white bold">Impressum & Hotelverwaltung</h1>
+    <div class="d-flex align-items-center justify-content-center">
+        <h1 class="mt-3">Impressum & Hotelverwaltung</h1>
     </div>
     <body>
         <section class="container p-3">
@@ -14,10 +14,10 @@
                 <table>
                     <tr>
                         <td>
-                        <img class="rounded border m-1" src="\content\man2.jpg" width="auto" height="300">
+                        <img class="rounded border m-1" src="content\pictures\man2.jpg" width="auto" height="300">
                         </td>
                         <td>
-                            <img class="rounded border" src="\content\man1.jpg" width="auto" height="300">
+                            <img class="rounded border" src="content\pictures\man1.jpg" width="auto" height="300">
                         </td>
                     </tr>
                     <tr>

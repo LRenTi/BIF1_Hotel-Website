@@ -7,15 +7,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
     <header>
-        <!-- Logo -->
         <div class="bc-blue">
-            <div class="d-flex container">
+            <!--Navbar-leiste-->
+            <nav class="d-flex container">
+                <!-- Logo -->
                 <div class="d-flex pt-3 pb-3 justify-content-start">
                     <img class="img-fluid" alt="Logo" src="content\logo\LogoHotel.svg" width="100">
                     <h5 class="font-weight-bold text-white d-flex align-self-center" style="font-size:50px;">Hotel</h5>
                 </div>
                 <!--Menu Start-->
-                <div class="d-flex flex-grow-1 align-items-end justify-content-end">
+                <div class="d-flex flex-grow-1 justify-content-end align-items-end mb-3">
                     <ul class="nav col-12 col-lg-auto ms-lg-auto mb-2 ms-2 mr-3">
                         <li><a href="index.php" class="nav-point px-2">Home</a></li>
                         <li><a href="index.php?faqs=true" class="nav-point px-2">FAQs</a></li>
@@ -24,13 +25,12 @@
                     <!--Menu Ends-->
                     <!--Login/Register Start-->
                     <div class="text-end mb-2 d-none d-lg-block">
-                        <a href="index.php?register=true" type="button" class="btn btn-outline">Register</a>
-                        <a type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#Login">Login</a>
+                       <a href="index.php?register=true" type="button" class="btn btn-outline">Register</a>                           
+                       <a type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#Login">Login</a>
                     </div>
                 </div>
-            </div>
                 <!--Login/Register Ends-->
-            </div>
+            </nav>
         </div>
         <!-- Modal Start -->
         <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="Loginlabel" aria-hidden="true">

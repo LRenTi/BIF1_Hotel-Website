@@ -26,7 +26,7 @@
                 <div class="navbar d-flex flex-grow-1 justify-content-end align-items-end mb-3 d-none d-sm-flex">
                     <?php
                     if (!isset($_SESSION["usernameSession"])){
-                            echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?inlcude=register\">Register</a>";                        
+                            echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=register\">Register</a>";                        
                             echo "<a type=\"button\" class=\"btn btn-outline me-2\" data-bs-toggle=\"modal\" data-bs-target=\"#Login\">Login</a>";
                         }
                     ?>
@@ -50,7 +50,7 @@
                         <?php
                         if (!isset($_SESSION["usernameSession"])){                        
                             echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" data-bs-toggle=\"modal\" data-bs-target=\"#Login\">Login</a>";
-                            echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?inlcude=register\">Register</a>";
+                            echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?include=register\">Register</a>";
                         }
                         ?>
                     </div>
@@ -84,18 +84,18 @@
                         <h5 class="modal-title" id="LoginLabel">Login</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form class="php\login.php">
+                    <form method="post" action="php\login.php">
+                        <div class="modal-body">
                             <label for="username">Benutzername:</label>
                             <input type="username" class="form-control" id="password" name="username" value="<?php if (isset($_POST["username"])) echo $_POST["username"]; ?>" required>
                             <label for="password">Passwort:</label>
                             <input type="password" class="form-control" id="password" name="password" required>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline cblue" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-gold" action="php\login.php">Login</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline cblue" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-gold" value="Login" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div> 
@@ -136,15 +136,7 @@
     ?>
 </body>
 <body>
-        <div class="row">
-            <div class="col">
-                <form method="post" action="php\login.php">
-                    <input name="username" value="<?php if (isset($_POST["username"])) echo $_POST["username"]; ?>" />
-                    <input name="password" type="password"/>
-                    <input type="submit" />
-                </form>
-            </div>
-        </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

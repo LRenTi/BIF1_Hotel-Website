@@ -18,7 +18,7 @@
                 echo "Schleich dich!";
             }
         }
-        header('location:\index.php?include=home');
+        header('Location: \index.php?include=home');
 
         ?>
     </body>

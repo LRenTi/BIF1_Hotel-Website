@@ -58,12 +58,18 @@
                         <li><a href="index.php" class="nav-point px-2">Home</a></li>
                         <li><a href="index.php?include=faqs" class="nav-point px-2">FAQs</a></li>
                         <li><a href="index.php?include=impressum" class="nav-point px-2 ">Impressum</a></li>
+                        <?php if(isset($_SESSION["usernameSession"])){
+                            echo("<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Upload</a></li>");}
+                        ?>
                     </ul>
                 </div>
                 <div>
                     <?php
                         if (isset($_SESSION["usernameSession"])){
                             echo "Angemeldet als: " . $_SESSION["usernameSession"];
+                        }                        
+                        if (isset($_SESSION["usernameSession"])){
+                            echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>");
                         }
                         if (isset($_SESSION["usernameSession"])){
                             echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"php\logout.php\">Logout</a>");
@@ -127,6 +133,14 @@
 				{
 					include("pages/register.php");
 				}
+                else if ($_GET["include"] == "profile")
+				{
+					include("pages\profile.php");
+				}
+                else if ($_GET["include"] == "admin")
+				{
+					include("pages\admin.php");
+				}
 			}
             
             else {
@@ -134,6 +148,9 @@
                 }
 
     ?>
+
+
+
 </body>
 <body>
 
@@ -141,8 +158,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
-
-    <footer class="bc-blue text-white text-center mb-0">
+<!--
+    <footer class="bc-blue text-white mb-0 navbar navbar-fixed-bottom">
         <p>&copy; 2023 L&A Hotel. Alle Rechte vorbehalten.</p>
     </footer>
+-->
 </html>

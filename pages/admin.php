@@ -18,7 +18,9 @@
             {
                 if($_FILES["picture"]["type"] == "image/jpeg")
                 {
-                    $destination = getcwd(). "\uploads\\" . uniqid() . "_" . $_FILES["picture"]["name"];
+                    $destination = getcwd(). "/uploads/" . uniqid() . "_" . $_FILES["picture"]["name"];
+
+                    var_dump($destination);
                     
                     move_uploaded_file($_FILES["picture"]["tmp_name"], $destination);
                     

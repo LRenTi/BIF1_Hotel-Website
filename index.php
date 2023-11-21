@@ -135,11 +135,11 @@
 				}
                 else if ($_GET["include"] == "profile")
 				{
-					include("pages\profile.php");
+					include("pages/profile.php");
 				}
                 else if ($_GET["include"] == "admin")
 				{
-					include("pages\admin.php");
+					include("pages/admin.php");
 				}
 			}
             

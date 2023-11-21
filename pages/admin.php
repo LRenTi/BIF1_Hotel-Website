@@ -6,11 +6,12 @@
     <body>
         <div class="container-md">
             <h1 class="mt-3">File Upload</h1>
-
-            <form action="index.php?include=admin" enctype="multipart/form-data" method="post">
-                <input type="file" name="picture" accept="image/jpeg"></br>
-                <input type="submit" class="btn btn-outline cblue mt-2 mb-2" value="Hochladen"/>
-            </form>
+            <div class="ms-3">
+                <form action="index.php?include=admin" enctype="multipart/form-data" method="post">
+                    <input type="file" name="picture" accept="image/jpeg"></br>
+                    <input type="submit" class="btn btn-gold mt-2 mb-2 p-1" value="Hochladen"/>
+                </form>
+            </div>
             
             <?php
             /* Upload picture */

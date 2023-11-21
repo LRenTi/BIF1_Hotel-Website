@@ -5,13 +5,15 @@
 .bc-blue{
     background-color:#0f2453;
 }
-.btn-blue{
+.btn-blue, input::file-selector-button{
     background-color: #0f2453!important;
     color:white!important;
+    border: #0f2453 solid 2px!important;
 }
-.btn-blue:hover{
+.btn-blue:hover, input::file-selector-button:hover{
     background-color: #3e4f75!important;
     border-color: #3e4f75;
+    border: #3e4f75 solid 2px!important;
 }
 .btn-gold{
     border:2px solid #f0dbac!important;
@@ -20,9 +22,9 @@
     font-weight: bold!important;
 }
 .btn-gold:hover{
-    border:2px solid #f0dbac!important;
-    background-color: #f0dbac!important;
-    border-color: #f0dbac!important;
+    border:2px solid #F3E2BC!important;
+    background-color: #F3E2BC!important;
+    border-color: #F3E2BC!important;
     font-weight: bold!important;
 }
 .btn-outline{
@@ -83,4 +85,9 @@
 }
 .td-none{
     text-decoration: none;
+}
+input::file-selector-button {
+    padding: 5px;
+    margin-right: .75rem;
+    border-radius: .25rem!important;
 }

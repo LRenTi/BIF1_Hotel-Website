@@ -4,6 +4,14 @@
         <title>Upload</title>
     </head>
     <body>
+        <?php
+
+        if(!isset($_SESSION["usernameSession"]))
+        {
+            header("Location: index.php?include=login");
+        }
+        ?>
+
         <div class="container-md">
             <h1 class="mt-3">File Upload</h1>
             <div class="ms-3">

@@ -54,34 +54,20 @@
     border-bottom: #3e4f75;
     border-width: 3px;
 }
-.back_area {
+.bghome {
     background-size: cover;
     background-position: center center;
-    text-align: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    color: white;
 }
-.back_img1 {
-    background-image: url(content\pictures\StockHotel.jpg);
-    background-size: cover;
+.bgimg {
+    background-image: url("content/pictures/StockHotel.jpg");
     background-position: center;
     background-repeat: no-repeat;
-}
-.back_img2 {
-    background-image: url(content/banner/home-banner.png);
-}
-.back_img3 {
-    background-image: url(content/banner/home-banner.png);
-}
-.header-area {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    top: 0;
-    z-index: 9;
-}
-.card-overlay 
-{
-    background: rgba(0, 0, 0, 0.5);
 }
 .td-none{
     text-decoration: none;

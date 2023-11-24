@@ -4,6 +4,20 @@
         <title>Willkommen im L&A Hotel!</title>
     </head>
 <body>
-  <img class="" src="content\pictures\StockHotel.jpg" width="100%">
+  <section class="d-flex justify-content-center bghome overlay" style="background-image: url('../content/pictures/StockHoteldark50.png');">
+    <div class="overlay"></div>
+    <div>
+      <?php
+        if(!isset($_SESSION["usernameSession"]))
+        {
+            echo("<h2 class=\"display-1 text-center\">Herzlich Willkommen </br> im L&A Hotel!</h2>");
+        }
+        if(isset($_SESSION["usernameSession"]))
+        {
+            echo("<h2 class=\"display-1 text-center\">Herzlich Willkommen</br>" . $_SESSION["usernameSession"] . "</br>im L&A Hotel!</h2>");
+        }
+      ?>
+    </div>
+  </section>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>
@@ -8,29 +9,23 @@
         <h1 class="mt-3">Impressum & Hotelverwaltung</h1>
     </div>
     <body>
-        <section class="container p-3">
-            <h2>Hotelverwaltung</h2>
-            <div class="images text-center">
-                <table>
-                    <tr>
-                        <td>
-                        <img class="rounded border m-1" src="content\pictures\man2.jpg" width="auto" height="300">
-                        </td>
-                        <td>
-                            <img class="rounded border" src="content\pictures\man1.jpg" width="auto" height="300">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Rentenberger Lorenz</b>
-                        </td>
-                        <td>
-                            <b>Dultinger Axel</b>
-                        </td>
-                    </tr>
-                </table>
+        
+        
+        <section class="container-md p-3">
+            <h2 class="text-center">Hotelverwaltung</h2>            
+            <div class="text center">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                       <img class="rounded border m-1" src="content\pictures\Lorenz.jpg" alt="Lorenz Rentenberger" width="auto" height="300"></br>
+                        <b>Rentenberger Lorenz</b>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img class="rounded border m-1" src="content\pictures\Axel.jpg" alt="Axel Dultinger" width="auto" height="300"></br>
+                        <b>Dultinger Axel</b>
+                    </div>
+                </div>
             </div>
-            <p>
+            <p class="text-center">
                 Unser Hotel wird von einer engagierten und erfahrenen Hotelverwaltung geleitet, 
                 die sich leidenschaftlich um das Wohl unserer Gäste kümmert. 
                 Unser Team arbeitet eng zusammen, um sicherzustellen, dass Ihr Aufenthalt in unserem Hotel unvergesslich und angenehm ist. 

@@ -46,25 +46,30 @@
                         <li><a href="index.php" class="nav-point px-2">Home</a></li>
                         <li><a href="index.php?include=faqs" class="nav-point px-2">FAQs</a></li>
                         <li><a href="index.php?include=impressum" class="nav-point px-2 ">Impressum</a></li>
-                        <?php if(isset($_SESSION["usernameSession"])){
-                            echo("<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Upload</a></li>");}
+                        <?php 
+                            if(isset($_SESSION["usernameSession"])){
+                                echo("<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Upload</a></li>");
+                            }
                         ?>
                     </ul>
-                </div>
-                <div>
-                    <?php
-                        if (isset($_SESSION["usernameSession"])){
-                            echo "Angemeldet als: " . $_SESSION["usernameSession"];
-                        }                        
-                        if (isset($_SESSION["usernameSession"])){
+
+                <?php
+                    if (isset($_SESSION["usernameSession"])){
+                        echo("<div class=\"d-flex d-sm-none justify-content-center\">");
                             echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>");
-                        }
-                        if (isset($_SESSION["usernameSession"])){
                             echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"php\logout.php\">Logout</a>");
-                        }
-                    ?>      
-                </div>
+                        echo("</div>");
+                    }
+                ?>
+
             </div>
+            <?php
+                if (isset($_SESSION["usernameSession"])){
+                echo("<div class=\"d-none d-sm-flex justify-content-end\">");
+                    echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>");
+                    echo("<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"php\logout.php\">Logout</a>");
+                echo("</div>");
+            } ?>  
         </nav>
         <hr class="solid m-0 p-0">
         

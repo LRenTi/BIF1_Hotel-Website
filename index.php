@@ -40,6 +40,10 @@
 				{
 					include("pages/faqs.php");
 				}
+                else if ($_GET["include"] == "login")
+				{
+					include("pages/login.php");
+				}
                 else if ($_GET["include"] == "register")
 				{
 					include("pages/register.php");

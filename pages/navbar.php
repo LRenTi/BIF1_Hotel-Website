@@ -15,7 +15,7 @@
                     <?php
                     if (!isset($_SESSION["usernameSession"])){
                             echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=register\">Register</a>";                        
-                            echo "<a type=\"button\" class=\"btn btn-outline me-2\" data-bs-toggle=\"modal\" data-bs-target=\"#Login\">Login</a>";
+                            echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=login\">Login</a>";
                         }
                     ?>
                     <a type="button" class="btn btn-gold" href="">Jetzt Buchen!</a>
@@ -37,7 +37,7 @@
                     <div class="d-flex justify-content-start d-sm-none mt-2 mb-2">
                         <?php
                         if (!isset($_SESSION["usernameSession"])){                        
-                            echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" data-bs-toggle=\"modal\" data-bs-target=\"#Login\">Login</a>";
+                            echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?include=login\">Login</a>";
                             echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?include=register\">Register</a>";
                         }
                         ?>
@@ -72,32 +72,6 @@
             } ?>  
         </nav>
         <hr class="solid m-0 p-0">
-        
-
-
-        <!-- Modal Start -->
-    <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="Loginlabel" aria-hidden="true" action="php\login.php">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="LoginLabel">Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form method="post" action="php\login.php">
-                        <div class="modal-body">
-                            <label for="username">Benutzername:</label>
-                            <input type="username" class="form-control" id="password" name="username" value="<?php if (isset($_POST["username"])) echo $_POST["username"]; ?>" required>
-                            <label for="password">Passwort:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline cblue" data-bs-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-gold" value="Login" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> 
-        <!--Modal ende -->   
+         
 
 </html>

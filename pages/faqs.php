@@ -4,7 +4,7 @@
         <title>FAQs - L&A Hotel</title>
     </head>
     <div class="d-flex align-items-center justify-content-center">
-        <h1 class="fw-bold">FAQs</h1>
+        <h1 class="fw-bold mt-3">FAQs</h1>
     </div>
     <body>
         <section class="container pt-3">

@@ -5,9 +5,9 @@
 
 <body>
     <section class="bg-grad-rb">
-        <div class="container d-flex justify-content-center p-5">
+        <div class="container d-flex justify-content-center pt-5">
             
-            <div class="card p-3 text-center border-white" style="width: 400px;">
+            <div class="card p-3 text-center border-white">
                 <h1 class="fw-bold mt-2 mb-3">Registrierung</h1>
 
                 <form method="post">

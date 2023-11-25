@@ -79,7 +79,7 @@ input::file-selector-button {
     border-radius: .25rem!important;
 }
 .bg-grad-rb {
-    background-image: linear-gradient(to right top, #0f2453, #6d3f68, #ac6874, #d79e86, #f0dbac);
+    background-image: URL("content/banner/patterns.png");
     min-height: 80vh;
 }
 .border-white{

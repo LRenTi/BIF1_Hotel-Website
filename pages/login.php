@@ -23,7 +23,7 @@
 
 <html>
     <head>
-        <title>Log in - LA Hotel</title>
+        <title>Login - LA Hotel</title>
     </head>
 
     <body>
@@ -31,7 +31,7 @@
             <div class="container d-flex justify-content-center pt-5">
                 
                 <div class="card p-3 text-center border-white">
-                    <h1 class="fw-bold mt-2 mb-3">Log in</h1>
+                    <h1 class="fw-bold mt-2 mb-3">Login</h1>
 
                     <form style="width: 20rem;" action="" method="post">
                         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -39,7 +39,7 @@
 
                             <input type="password" class="text-center form-control" style="width: 15rem;" placeholder="Passwort" id="password" name="password" required>
                         
-                            <button type="submit" class="btn btn-outline cblue mb-3 mt-2">Log in</button>
+                            <button type="submit" class="btn btn-outline cblue mb-3 mt-2">Login</button>
                             <p >Noch keinen Account? <a href="index.php?include=register" class="">Hier registrieren</a></p>
                         </div>
                     <form>

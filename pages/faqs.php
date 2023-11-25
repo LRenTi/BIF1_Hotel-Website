@@ -3,8 +3,8 @@
     <head>
         <title>FAQs - L&A Hotel</title>
     </head>
-    <div class="back_area back_img3 d-flex align-items-center justify-content-center">
-        <h1 class="text-white bold">FAQs</h1>
+    <div class="d-flex align-items-center justify-content-center">
+        <h1 class="fw-bold">FAQs</h1>
     </div>
     <body>
         <section class="container pt-3">

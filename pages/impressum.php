@@ -6,7 +6,7 @@
         </title>
     </head>
     <div class="d-flex align-items-center justify-content-center">
-        <h1 class="mt-3">Impressum & Hotelverwaltung</h1>
+        <h1 class="mt-3 fw-bold">Impressum & Hotelverwaltung</h1>
     </div>
     <body>
         

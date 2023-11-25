@@ -2,7 +2,7 @@
 <head>
     <title>Registrierung</title>
 </head>
-<div class="back_area back_img1 d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center justify-content-center">
         <h1 class="text-white bold">Registrierung</h1>
 </div>
 <body>

@@ -2,49 +2,34 @@
 <head>
     <title>Registrierung</title>
 </head>
-<div class="d-flex align-items-center justify-content-center">
-        <h1 class="text-white bold">Registrierung</h1>
-</div>
+
 <body>
-    <div class="container p-3">
-        <h2>Registrieren sie sich!</h2>
-        <form method="post">
-            <div class="row g-3">
-                <div class="col-6">
-                    <input type="text" class="form-control" placeholder="Benutzername" id="username" required>
-                </div>
-                <div class="col-6">
-                </div>
-                <div class="col-6">
-                    <select class="form-control" placeholder="Anrede" id="anrede">
-                        <option id="male">Herr</option>
-                        <option id="female">Frau</option>
-                        <option id="divers">ohne Anrede</option>
-                </div>
-                <div class="col-6">
-                </div>
-                <div class="col-6">
-                    <input type="text" class="form-control" placeholder="Vorname" id="Vorname" required>
-                </div>
-                <div class="col-6">
-                    <input type="text" class="form-control" placeholder="Nachname" id="Nachname" required>
-                </div>
-                <div class="col-6">
-                    <input type="password" class="form-control" placeholder="Passwort" id="password1" required>
-                </div>
-                <div class="col-6">
-                    <input type="password" class="form-control" placeholder="Passwort wiederholen" id="password2" required>
-                </div>
-                <div class="col-6">
-                    <input type="email" class="form-control" placeholder="Email" id="mail" required>
-                </div>
-                <div class="col-6">
-                </div>
-                <div class="col-6">
-                    <input type="telephone" class="form-control" placeholder="Telefonnummer" id="telephone" required>
-                </div>
+    <section class="bg-grad-rb">
+        <div class="container d-flex justify-content-center p-5">
+            
+            <div class="card p-3 text-center border-white" style="width: 400px;">
+                <h1 class="fw-bold mt-2 mb-3">Registrierung</h1>
+
+                <form method="post">
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" id="username" required>
+                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" id="mail" required>                            
+                                <select class="text-center form-control mb-3" style="width: 5rem;" placeholder="Anrede" id="anrede">
+                                    <option id="male">Herr</option>
+                                    <option id="female">Frau</option>
+                                    <option id="divers">ohne Anrede</option>
+                                </select>
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" id="Vorname" required>
+                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" id="Nachname" required>
+                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" id="telephone" required>
+                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort" id="password1" required>
+                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" id="password2" required>
+                                <button type="submit" class="btn btn-blue" style="width: 15rem;">Registrieren</button>
+                                <p class="mt-3">Haben sie schon einen Account? <a href="index.php?include=login">Login hier</a></p>
+                        </div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-blue mt-3">Registrieren</button>
-        </form>
+        </div>
+    </section>
     </body>
 </html>

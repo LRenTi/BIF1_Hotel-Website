@@ -65,9 +65,10 @@
     color: white;
 }
 .bgimg {
-    background-image: url("content/pictures/StockHotel.jpg");
+    background-image: url("content/pictures/StockHoteldark50.png");
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 .td-none{
     text-decoration: none;
@@ -75,5 +76,13 @@
 input::file-selector-button {
     padding: 5px;
     margin-right: .75rem;
+    border-radius: .25rem!important;
+}
+.bg-grad-rb {
+    background-image: linear-gradient(to right top, #0f2453, #6d3f68, #ac6874, #d79e86, #f0dbac);
+    min-height: 80vh;
+}
+.border-white{
+    border-color: white!important;
     border-radius: .25rem!important;
 }

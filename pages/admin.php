@@ -63,7 +63,7 @@
             echo "<h2 class=\"mt-2 fw-bold\" >Pictures</h2>";
 
             if ($files !== false) {
-                if (count($files) > 2){
+                if (count($files) > 3){
                     echo "<h3 class=\"mt-2\" >Alle Uploads</h3>";
                 }
                 else { echo "<h5 class=\"mt-2\">Keine Uploads vorhanden!</h5>";}

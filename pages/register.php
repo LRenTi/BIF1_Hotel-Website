@@ -5,7 +5,7 @@
 
 <body>
     <section class="bg-grad-rb">
-        <div class="container d-flex justify-content-center pt-5">
+        <div class="container d-flex justify-content-center pt-3 pb-3">
             
             <div class="card p-3 text-center border-white">
                 <h1 class="fw-bold mt-2 mb-3">Registrierung</h1>

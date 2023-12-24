@@ -8,10 +8,11 @@ $email = $_POST["email"];
 $vorname = $_POST["Vorname"];
 $nachname = $_POST["Nachname"];
 $telefon = $_POST["telephone"];
+$anrede = $_POST["anrede"];
 // usw. für alle anderen Daten, die Sie aktualisieren möchten
 
 // SQL-Abfrage vorbereiten
-$stmt = $mysql->prepare("UPDATE ACCOUNTS SET USERNAME = :username, VORNAME = :vorname, NACHNAME = :nachname, EMAIL = :email, TELEFON = :telefon WHERE username = :session_username");
+$stmt = $mysql->prepare("UPDATE ACCOUNTS SET USERNAME = :username, VORNAME = :vorname, NACHNAME = :nachname, EMAIL = :email, TELEFON = :telefon, ANREDE = :anrede WHERE username = :session_username");
 
 // Parameter binden
 $stmt->bindParam(':username', $username);
@@ -19,6 +20,7 @@ $stmt->bindParam(':email', $email);
 $stmt->bindParam(':vorname', $vorname);
 $stmt->bindParam(':nachname', $nachname);
 $stmt->bindParam(':telefon', $telefon);
+$stmt->bindParam(':anrede', $anrede);
 $stmt->bindParam(':session_username', $_SESSION["usernameSession"]);
 
 // Abfrage ausführen

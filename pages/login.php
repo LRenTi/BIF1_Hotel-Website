@@ -1,22 +1,22 @@
 <?php
     $msg = "";
-
-    if(isset($_POST["username"]) && isset($_POST["password"]))
-    {
-        if($_POST["username"] == $_POST["password"])
-        {
-            // Login erfolgreich
-            $_SESSION["usernameSession"] = $_POST["username"];
-            header("Refresh:0");
-            header('Location: \index.php?include=home');
-        } 
-        else 
-        {
-            $msg = "<p class=\"text-danger\">Wrong username or password!</p>";
+    if(isset($_POST["submit"])){
+        require("php\mysql.php");
+        $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user");
+        $stmt->bindPARAM(":user", $_POST["username"]);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        if($count >= 1){
+            $row = $stmt->fetch();
+            if(password_verify($_POST["pw"], $row["PASSWORD"])){
+                $_SESSION["usernameSession"] = $row["USERNAME"];
+                header("Refresh:0");
+                header('Location: \index.php?include=home');
+            } 
+            else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
         }
+        else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
     }
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +37,9 @@
                         <div class="d-flex flex-column justify-content-center align-items-center">
                             <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Benutzername" id="username" name="username" value="<?php if (isset($_POST["username"])) echo $_POST["username"]; ?>" required>
 
-                            <input type="password" class="text-center form-control" style="width: 15rem;" placeholder="Passwort" id="password" name="password" required>
+                            <input type="password" class="text-center form-control" style="width: 15rem;" placeholder="Passwort" id="password" name="pw" required>
                         
-                            <button type="submit" class="btn btn-outline cblue mb-3 mt-2">Login</button>
+                            <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Login</button>
                             <p >Noch keinen Account? <a href="index.php?include=register" class="">Hier registrieren</a></p>
                         </div>
                     <form>

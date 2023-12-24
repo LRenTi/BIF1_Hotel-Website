@@ -4,6 +4,37 @@
 </head>
 
 <body>
+
+    <?php
+    $msg = "";
+    if(isset($_POST["submit"])){
+        require("php\mysql.php");
+        $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user"); // Username überprüfen
+        $stmt->bindPARAM(":user", $_POST["username"]);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        if($count == 0){
+            // Username ist noch nicht vergeben
+            if($_POST["pw"] == $_POST["pw2"]){
+                // User anlegen
+                $stmt = $mysql->prepare("INSERT INTO ACCOUNTS (USERNAME, EMAIL, ANREDE, VORNAME, NACHNAME, TELEFON, PASSWORD) VALUES (:user, :mail, :anrede, :vorname, :nachname, :telefonnummer, :pw)");
+                $stmt->bindPARAM(":user", $_POST["username"]);
+                $stmt->bindPARAM(":mail", $_POST["mail"]);
+                $stmt->bindPARAM(":anrede", $_POST["anrede"]);
+                $stmt->bindPARAM(":vorname", $_POST["Vorname"]);
+                $stmt->bindPARAM(":nachname", $_POST["Nachname"]);
+                $stmt->bindPARAM(":telefonnummer", $_POST["telephone"]);                
+                $hash = password_hash($_POST["pw"], PASSWORD_BCRYPT);
+                $stmt->bindPARAM(":pw", $hash);
+                $stmt->execute();
+                $msg = "<p style=\"color:green;\">Registrierung erfolgreich!</p>";
+            } 
+            else { $msg = "<p style=\"color:green;\">Passwörter stimmen nicht überein"; }
+        } 
+    else { $msg = "Username bereits vergeben";}
+    }
+    ?>
+
     <section class="bg-grad-rb">
         <div class="container d-flex justify-content-center pt-3 pb-3">
             
@@ -12,20 +43,21 @@
 
                 <form method="post">
                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" id="username" required>
-                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" id="mail" required>                            
-                                <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede">
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" name="username" required>
+                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" name="mail">                            
+                                <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede" name="anrede">
                                     <option id="male">Herr</option>
                                     <option id="female">Frau</option>
                                     <option id="divers">ohne Anrede</option>
                                 </select>
-                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" id="Vorname" required>
-                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" id="Nachname" required>
-                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" id="telephone" required>
-                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort" id="password1" required>
-                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" id="password2" required>
-                                <button type="submit" class="btn btn-blue" style="width: 15rem;">Registrieren</button>
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" name="Vorname">
+                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" name="Nachname">
+                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" name="telephone">
+                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort" name="pw" required>
+                                <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" name="pw2" required>
+                                <button type="submit" class="btn btn-blue" style="width: 15rem;" name="submit">Registrieren</button>
                                 <p class="mt-3">Haben sie schon einen Account? <a href="index.php?include=login">Login hier</a></p>
+                                <?php echo $msg ?>
                         </div>
                 </form>
             </div>

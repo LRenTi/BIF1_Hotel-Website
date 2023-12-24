@@ -6,5 +6,5 @@ create table ACCOUNTS (
     VORNAME varchar(255),
     NACHNAME varchar(255),
     EMAIL varchar(255),
-    TELEFON int
+    TELEFON int(16)
 )

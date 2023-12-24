@@ -23,11 +23,23 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
             <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Benutzername" id="username" value="<?php echo $user["USERNAME"]; ?>" name="username" required>
             <label><b>Anrede</b></label>
             <select class="text-center form-control mb-3" style="width: 15rem;" placeholder="Anrede" id="anrede" name="anrede" value="<?php echo $user["ANREDE"]; ?>"required>
-                <option id="curr">Aktuell: <?php echo $user["ANREDE"]; ?></option>
-                <option id="male">Herr</option>
-                <option id="female">Frau</option>
-                <option id="divers">ohne Anrede</option>
+            <?php
+            if($user["ANREDE"] == "Herr"){
+                echo "<option id=\"male\" selected>Herr</option>";
+                echo "<option id=\"female\">Frau</option>";
+                echo "<option id=\"divers\">ohne Anrede</option>";
+            } else if($user["ANREDE"] == "Frau"){
+                echo "<option id=\"female\" selected>Frau</option>";
+                echo "<option id=\"male\">Herr</option>";
+                echo "<option id=\"divers\">ohne Anrede</option>";
+            } else {
+                echo "<option id=\"divers\" selected>ohne Anrede</option>";
+                echo "<option id=\"male\">Herr</option>";
+                echo "<option id=\"female\">Frau</option>";
+            }
+            ?>
                 </select>
+            
             <label><b>Vorname</b></label>
             <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" value="<?php echo $user["VORNAME"]; ?>" name="Vorname" required>
             <label><b>Nachname</b></label>

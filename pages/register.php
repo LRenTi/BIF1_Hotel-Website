@@ -44,15 +44,15 @@
                 <form method="post">
                         <div class="d-flex flex-column justify-content-center align-items-center">
                                 <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" name="username" required>
-                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" name="mail">                            
-                                <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede" name="anrede">
+                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" name="mail" required>                            
+                                <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede" name="anrede" required>
                                     <option id="male">Herr</option>
                                     <option id="female">Frau</option>
                                     <option id="divers">ohne Anrede</option>
                                 </select>
-                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" name="Vorname">
-                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" name="Nachname">
-                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" name="telephone">
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" name="Vorname" required>
+                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" name="Nachname" required>
+                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" name="telephone" required>
                                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort" name="pw" required>
                                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" name="pw2" required>
                                 <button type="submit" class="btn btn-blue" style="width: 15rem;" name="submit">Registrieren</button>

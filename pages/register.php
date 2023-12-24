@@ -14,7 +14,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center">
                                 <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" id="username" required>
                                 <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" id="mail" required>                            
-                                <select class="text-center form-control mb-3" style="width: 5rem;" placeholder="Anrede" id="anrede">
+                                <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede">
                                     <option id="male">Herr</option>
                                     <option id="female">Frau</option>
                                     <option id="divers">ohne Anrede</option>

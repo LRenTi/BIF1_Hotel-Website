@@ -1,3 +1,5 @@
+Create database hotel
+
 create table ACCOUNTS (
     ID int not null AUTO_INCREMENT primary key,
     USERNAME varchar(255) not null UNIQUE,
@@ -6,5 +8,5 @@ create table ACCOUNTS (
     VORNAME varchar(255),
     NACHNAME varchar(255),
     EMAIL varchar(255),
-    TELEFON int(16)
+    TELEFON varchar(16)
 )

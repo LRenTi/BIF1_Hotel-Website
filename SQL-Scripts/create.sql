@@ -10,3 +10,11 @@ create table ACCOUNTS (
     EMAIL varchar(255),
     TELEFON varchar(16)
 )
+
+create table NEWS (
+    ID int not null AUTO_INCREMENT primary key,
+    TITLE varchar(255) not null,
+    TEXT varchar(255) not null,
+    IMAGE varchar(255 not null),
+    DATE date not null
+)

@@ -3,7 +3,7 @@
 <html>
     <body>
         <div class="container-sm d-flex justify-content-center row mt-2">
-            <div class="col col-6">
+        <div class="col">
             <h3>Dein Profil ändern</h3>
             <?php
             if(isset($_GET["msg"]))
@@ -48,34 +48,34 @@
                 <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Aktualisieren</button>
             </form>
         </div>
-        <div class="col col-6">
-                <h3>Passwort ändern</h3>
-                <?php
-                    if(isset($_GET["msg"])){
-                        if ($_GET["msg"] == "pwsuccess") {
-                            echo "<p style=\"color:green\">Passwort erfolgreich aktualisiert!</p>";
-                        }
-                        if ($_GET["msg"] == "pwdiverge") {
-                            echo "<p style=\"color:red\">Neue passwörter stimmen nicht überein!</p>";
-                        }
-                        if ($_GET["msg"] == "pwwrong") {
-                            echo "<p style=\"color:red\">Altes Passwort ist falsch!</p>";
-                        }
-                        if ($_GET["msg"] == "pwsame") {
-                            echo "<p style=\"color:red\">Neues Passwort darf nicht gleich dem alten sein!</p>";
-                        }
+        <div class="col">
+            <h3>Passwort ändern</h3>
+            <?php
+                if(isset($_GET["msg"])){
+                    if ($_GET["msg"] == "pwsuccess") {
+                        echo "<p style=\"color:green\">Passwort erfolgreich aktualisiert!</p>";
                     }
-                ?>
-                <form method="post" action="./php/update_password.php">
-                    <label><b>Altes Passwort</b></label>
-                    <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Altes Passwort" id="oldpw" name="oldpw" required>
-                    <label><b>Neues Passwort</b></label>
-                    <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort" id="newpw" name="newpw" required>
-                    <label><b>Neues Passwort wiederholen</b></label>
-                    <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort wiederholen" id="newpw2" name="newpw2" required>
-                    <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Passwort ändern</button>
-                </form>
-                <?php echo $msg ?>
-            </div>
+                    if ($_GET["msg"] == "pwdiverge") {
+                        echo "<p style=\"color:red\">Neue passwörter stimmen nicht überein!</p>";
+                    }
+                    if ($_GET["msg"] == "pwwrong") {
+                        echo "<p style=\"color:red\">Altes Passwort ist falsch!</p>";
+                    }
+                    if ($_GET["msg"] == "pwsame") {
+                        echo "<p style=\"color:red\">Neues Passwort darf nicht gleich dem alten sein!</p>";
+                    }
+                }
+            ?>
+            <form method="post" action="./php/update_password.php">
+                <label><b>Altes Passwort</b></label>
+                <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Altes Passwort" id="oldpw" name="oldpw" required>
+                <label><b>Neues Passwort</b></label>
+                <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort" id="newpw" name="newpw" required>
+                <label><b>Neues Passwort wiederholen</b></label>
+                <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort wiederholen" id="newpw2" name="newpw2" required>
+                <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Passwort ändern</button>
+            </form>
+            <?php echo $msg ?>
+        </div>
     </body>
 </html>

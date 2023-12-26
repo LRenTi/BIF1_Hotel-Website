@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container-md">
-            <h1 class="text-center mt-3 fw-bold">Admin section</h1>
+            <h1 class="text-center mt-3 fw-bold">Adminsection</h1>
 
             <div>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=news">News</a>

@@ -4,7 +4,7 @@
         <title>News</title>
     </head>
     <body>
-        <div class="container-md">
+        <div class="container-md text-center">
             <h1 class="text-center mt-3 fw-bold">News</h1>
 
             <?php
@@ -27,7 +27,7 @@
                             continue;
                         }
                         else if (pathinfo($file, PATHINFO_EXTENSION) == "jpg" || pathinfo($file, PATHINFO_EXTENSION) == "jpeg") {
-                            echo '<a href="index.php?include=admin&pic='. $file . '">' . $file . '</a><br>';
+                            echo '<a href="index.php?include=news&pic='. $file . '">' . $file . '</a><br>';
                         } else {
                             echo $file . "<br>";
                         }
@@ -67,7 +67,7 @@
                             continue;
                         }
                         else if (pathinfo($fileT, PATHINFO_EXTENSION) == "jpg" || pathinfo($fileT, PATHINFO_EXTENSION) == "jpeg") {
-                            echo '<a href="index.php?include=admin&tpic='. $fileT . '">' . $fileT . '</a><br>';
+                            echo '<a href="index.php?include=news&tpic='. $fileT . '">' . $fileT . '</a><br>';
                         } else {
                             echo $fileT . "<br>";
                         }

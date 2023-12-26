@@ -17,39 +17,35 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
         <h1 class="font-weight-bold mt-3">
             Profil - <?php echo $username; ?>
         </h1>
-        <h2>Deine Daten ändern</h2>
-        <form method="post" action="./php/update_profile.php">
-            <label><b>Benutzername</b></label>
-            <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Benutzername" id="username" value="<?php echo $user["USERNAME"]; ?>" name="username" required>
-            <label><b>Anrede</b></label>
-            <select class="text-center form-control mb-3" style="width: 15rem;" placeholder="Anrede" id="anrede" name="anrede" value="<?php echo $user["ANREDE"]; ?>"required>
-            <?php
-            if($user["ANREDE"] == "Herr"){
-                echo "<option id=\"male\" selected>Herr</option>";
-                echo "<option id=\"female\">Frau</option>";
-                echo "<option id=\"divers\">ohne Anrede</option>";
-            } else if($user["ANREDE"] == "Frau"){
-                echo "<option id=\"female\" selected>Frau</option>";
-                echo "<option id=\"male\">Herr</option>";
-                echo "<option id=\"divers\">ohne Anrede</option>";
-            } else {
-                echo "<option id=\"divers\" selected>ohne Anrede</option>";
-                echo "<option id=\"male\">Herr</option>";
-                echo "<option id=\"female\">Frau</option>";
+        <div>
+            <a type="button" class="btn btn-gold" href="index.php?include=profile&site=booking">Deine Buchungen</a>
+            <a type="button" class="btn btn-gold" href="index.php?include=profile&site=change">Profil ändern</a>
+        </div>
+
+        <?php
+
+        if (!isset($_GET["site"]) && isset($_COOKIE["siteCookie"]))
+        {
+            $_GET["site"] = $_COOKIE["siteCookie"];
+        }
+
+			if(isset($_GET["site"]))
+			{
+
+                if ($_GET["site"] == "change")
+				{
+					include("profile/profilechange.php");
+				} 
+				if ($_GET["site"] == "booking")
+				{
+					include("profile/profilebooking.php");
+				}
             }
-            ?>
-                </select>
-            
-            <label><b>Vorname</b></label>
-            <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" value="<?php echo $user["VORNAME"]; ?>" name="Vorname" required>
-            <label><b>Nachname</b></label>
-            <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Nachname" value="<?php echo $user["NACHNAME"]; ?>" name="Nachname" required>
-            <label><b>Email</b></label>
-            <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Email" id="email" name="email" value="<?php echo $user["EMAIL"]; ?>" required>
-            <label><b>Telefonnummer</b></label>
-            <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" id="telephone" name="telephone" value="<?php echo $user["TELEFON"]; ?>" required>
-            <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Aktualisieren</button>
-        </form>
+            else {
+                include("profile/profilebooking.php");
+            }
+
+        ?>
     </div>
 </body>
 </html>

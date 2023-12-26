@@ -1,3 +1,4 @@
+// Script zum Profildaten ändern
 <?php
 session_start();
 require("mysql.php");
@@ -30,6 +31,6 @@ $stmt->execute();
 $_SESSION["usernameSession"] = $username;
 
 // Weiterleiten des Benutzers zurück zum Profil
-header("Location: ../index.php?include=profile");
+header("Location: ../index.php?include=profile&site=change&msg=profilesuccess");
 exit();
 ?>

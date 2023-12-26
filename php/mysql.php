@@ -1,5 +1,5 @@
-// Script zum Verbinden der Datenbank
 <?php
+// Script zum Verbinden der Datenbank
 $host = "localhost";
 $name = "hotel";
 $user = "root";

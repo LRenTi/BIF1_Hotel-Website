@@ -24,13 +24,13 @@
                     $stmt->bindParam(':username', $username);
                     $stmt->execute();
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-                    echo "<div class=\"d-flex align-items-center justify-content-center text-white me-2 fw-bold\">";
+                    echo "<div class=\"d-flex align-items-center text-white fw-bold\">";
                     if ($user["ANREDE"] == "Herr") {
-                        echo "<p class=\"text-center\"> Herr " . $user["NACHNAME"] . "</p>";
+                        echo "<a class=\"nav-point text-white\"> Herr " . $user["NACHNAME"] . "</a>";
                     } else if ($user["ANREDE"] == "Frau") {
-                        echo "<p> Frau " . $user["NACHNAME"] . "</p>";
+                        echo "<a class=\"nav-point text-white\"> Frau " . $user["NACHNAME"] . "</a>";
                     } else {
-                        echo "<p>" . $user["NACHNAME"] . "</p>";
+                        echo "<a class=\"nav-point text-white\">" . $user["VORNAME"] . " " . $user["NACHNAME"] . "</a>";
                     }
                     echo "</div>";
                 }

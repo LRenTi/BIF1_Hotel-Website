@@ -1,3 +1,4 @@
+// Script zum Verbinden der Datenbank
 <?php
 $host = "localhost";
 $name = "hotel";

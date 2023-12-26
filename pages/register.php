@@ -8,7 +8,7 @@
     <?php
     $msg = "";
     if(isset($_POST["submit"])){
-        require("php\mysql.php");
+        require("php/mysql.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user"); // Username überprüfen
         $stmt->bindPARAM(":user", $_POST["username"]);
         $stmt->execute();

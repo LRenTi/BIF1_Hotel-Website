@@ -40,7 +40,7 @@
             
             <div class="card p-3 text-center border-white">
                 <h1 class="fw-bold mt-2 mb-3">Registrierung</h1>
-
+                <?php echo $msg ?>
                 <form method="post">
                         <div class="d-flex flex-column justify-content-center align-items-center">
                                 <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" name="username" required>
@@ -57,7 +57,6 @@
                                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" name="pw2" required>
                                 <button type="submit" class="btn btn-blue" style="width: 15rem;" name="submit">Registrieren</button>
                                 <p class="mt-3">Haben sie schon einen Account? <a href="index.php?include=login">Login hier</a></p>
-                                <?php echo $msg ?>
                         </div>
                 </form>
             </div>

@@ -32,6 +32,10 @@
 				{
 					include("pages/home.php");
 				} 
+                if ($_GET["include"] == "news")
+				{
+					include("pages/news.php");
+                }
 				if ($_GET["include"] == "impressum")
 				{
 					include("pages/impressum.php");

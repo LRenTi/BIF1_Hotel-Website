@@ -60,11 +60,12 @@
                 </div>
                 <ul class="navbar-nav">
                     <li><a href="index.php" class="nav-point px-2">Home</a></li>
+                    <li><a href="index.php?include=news" class="nav-point px-2 ">News</a></li>
                     <li><a href="index.php?include=faqs" class="nav-point px-2">FAQs</a></li>
                     <li><a href="index.php?include=impressum" class="nav-point px-2 ">Impressum</a></li>
                     <?php
-                    if (isset($_SESSION["usernameSession"])) {
-                        echo "<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Upload</a></li>";
+                    if ($_SESSION["usernameSession"] == "admin") {
+                        echo "<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Admin</a></li>";
                     }
                     ?>
                 </ul>

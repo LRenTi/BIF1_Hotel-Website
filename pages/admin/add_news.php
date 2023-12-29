@@ -29,10 +29,7 @@ if(isset($_FILES["picture"]))
 /* Create news */
 if(isset($_POST["submit"])){
     require("./php/mysql.php");
-    echo $mysql->error;
-
     $stmt = $mysql->prepare("INSERT INTO NEWS (TITLE, TEXT, DATE, IMAGE) VALUES (:title, :content, :date, :picture)");
-    echo $mysql->error;
     $stmt->bindParam(":title", $_POST["title"]);
     $stmt->bindParam(":content", $_POST["content"]);
     $stmt->bindParam(":date", $_POST["date"]);

@@ -8,70 +8,31 @@
             <h1 class="cblue mt-3 fw-bold">Aktuelles</h1>
 
             <?php
-                session_start();
-                require("mysql.php");
+            require("php/mysql.php");
 
-                // Daten aus dem Formular holen
-                $username = $_POST["username"];
-                $email = $_POST["email"];
-                $vorname = $_POST["Vorname"];
-                $nachname = $_POST["Nachname"];
-                $telefon = $_POST["telephone"];
-                $anrede = $_POST["anrede"];
-                // usw. für alle anderen Daten, die Sie aktualisieren möchten
+            $stmt = $mysql->prepare("SELECT * FROM NEWS ORDER BY DATE DESC");
+            $stmt->execute();
+            $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // SQL-Abfrage vorbereiten
-                $stmt = $mysql->prepare("UPDATE ACCOUNTS SET USERNAME = :username, VORNAME = :vorname, NACHNAME = :nachname, EMAIL = :email, TELEFON = :telefon, ANREDE = :anrede WHERE username = :session_username");
+            if (count($news) == 0)
+            {
+                echo "<h3 class=\"mt-2\" >Keine News vorhanden!</h3>";
+            }
 
-                // Parameter binden
-                $stmt->bindParam(':username', $username);
-                $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':vorname', $vorname);
-                $stmt->bindParam(':nachname', $nachname);
-                $stmt->bindParam(':telefon', $telefon);
-                $stmt->bindParam(':anrede', $anrede);
-                $stmt->bindParam(':session_username', $_SESSION["usernameSession"]);
-
-                // Abfrage ausführen
-                $stmt->execute();
-
-                // Aktualisieren Sie die Session-Daten
-                $_SESSION["usernameSession"] = $username;
-
-                // Weiterleiten des Benutzers zurück zum Profil
-                header("Location: ../index.php?include=profile&site=change&msg=profilesuccess");
-                exit();
+            foreach($news as $newsItem)
+            {
+                echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
+                    echo "<div class=\"d-flex\">";
+                        echo "<img class=\"m-3 rounded\" src=\"" . $newsItem["IMAGE"] . "\" width=\"300px\">";
+                        echo "<div>";
+                            echo "<h2 class=\"mt-2 mb-0 pb-0 fw-bold cblue\" >" . $newsItem["TITLE"] . "</h2>";
+                            echo "<p class=\"cblue fw-bold m-0 p-0 ms-3\">" . date('d. M. Y', strtotime($newsItem["DATE"])) . "</p>";
+                            echo "<p class=\"cblue ms-3 me-3\">" . $newsItem["TEXT"] . "</p>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+            }
                 ?>
-            
-            <div class="col-12 border border-2 rounded m-3 pb-0 p-3">
-                <div>
-
-                </div>
-                <div class="d-flex">
-                    <img class="m-3 rounded-circle "src="uploads/thumbnails/resized_65636db06fbf4_0_0.jpg" width="360px">
-                    <div>
-                        <h2 class="mt-2 mb-0 pb-0 fw-bold cblue" >EXAMPLE NEWS</h2>
-                        <p class="cblue fw-bold m-0 p-0 ms-3">DATE</p>
-                        <p class="cblue ms-3 me-3">
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <?php
-
-
-
-
-
-
-            ?>
 
 
             <!-- BREAK

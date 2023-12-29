@@ -31,9 +31,10 @@
                             include("admin/add_news.php");
                         } 
                     }
+                    /*
                     else {
                         include("admin/.php");
-                    }
+                    }*/
 
             ?>
         </div>

@@ -38,6 +38,18 @@
     color:#0f2453!important;
     font-weight: bold!important;
 }
+.btn-red:hover{
+    border:2px solid #f39393!important;
+    background-color:#ffffff!important;
+    color:#0f2453!important;
+    font-weight: bold!important;
+}
+.btn-red{
+    border:2px solid #f39393!important;
+    color:#0f2453!important;
+    background-color: #f39393!important;
+    font-weight: bold!important;
+}
 .cblue{
     color:#0f2453!important;
 }

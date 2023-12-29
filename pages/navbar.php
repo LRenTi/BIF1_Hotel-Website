@@ -64,14 +64,15 @@
                     <li><a href="index.php?include=faqs" class="nav-point px-2">FAQs</a></li>
                     <li><a href="index.php?include=impressum" class="nav-point px-2 ">Impressum</a></li>
                     <?php
-                    if ($_SESSION["usernameSession"] == "admin") {
-                        echo "<li><a href=\"index.php?include=admin\" class=\"nav-point px-2\">Admin</a></li>";
-                    }
+
                     ?>
                 </ul>
                 <?php
                 if (isset($_SESSION["usernameSession"])) {
                     echo "<div class=\"d-flex d-sm-none justify-content-center\">";
+                    if ($_SESSION["usernameSession"] == "admin") {
+                        echo "<a type=\"button\" class=\"btn btn-red cblue ms-2\" href=\"index.php?include=admin\">Admin</a></li>";
+                    }
                     echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>";
                     echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"php\logout.php\">Logout</a>";
                     echo "</div>";
@@ -81,6 +82,9 @@
             <?php
             if (isset($_SESSION["usernameSession"])) {
                 echo "<div class=\"d-none d-sm-flex justify-content-end\">";
+                if ($_SESSION["usernameSession"] == "admin") {
+                    echo "<a type=\"button\" class=\"btn btn-red cblue ms-2\" href=\"index.php?include=admin\">Admin</a></li>";
+                }
                 echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>";
                 echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"php\logout.php\">Logout</a>";
                 echo "</div>";

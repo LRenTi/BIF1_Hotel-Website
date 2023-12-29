@@ -1,5 +1,5 @@
-// Script zum Profildaten ändern
 <?php
+// Script zum Profildaten ändern
 session_start();
 require("mysql.php");
 

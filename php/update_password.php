@@ -1,5 +1,5 @@
-// Script um passwort zu ändern
 <?php
+// Script um passwort zu ändern
 session_start();
 require("mysql.php");
 

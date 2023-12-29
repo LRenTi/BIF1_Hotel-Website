@@ -14,7 +14,7 @@
             <h1 class="text-center mt-3 fw-bold">Adminsection</h1>
 
             <div>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=news">News</a>
+                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newscreate">News erstellen</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">???</a>
             </div>
 
@@ -26,9 +26,9 @@
                 }
                     if(isset($_GET["site"]))
                     {
-                        if ($_GET["site"] == "news")
+                        if ($_GET["site"] == "newscreate")
                         {
-                            include("admin/admin_news.php");
+                            include("admin/add_news.php");
                         } 
                     }
                     else {

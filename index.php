@@ -60,6 +60,10 @@
 				{
 					include("pages/admin.php");
 				}
+                else if ($_GET["include"] == "booking")
+				{
+					include("pages/booking.php");
+                }
 			}
             
             else {

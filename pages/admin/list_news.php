@@ -30,9 +30,10 @@
     foreach($news as $newsItem)
     {
         echo "<div class=\"d-flex\">";
-        echo "<p>" . $newsItem["TITLE"] . " </p>";
-        echo "<p class=\"\">" . date('d.m.Y', strtotime($newsItem["DATE"])) . "</p>";
-        echo "<a class=\"\" href=\"index.php?include=admin&site=newslist&newsid=" . $newsItem["ID"] . "\"> bearbeiten </a>";
+        echo "<p class=\"fw-bold\">" . $newsItem["TITLE"] . " </p>";
+        echo "<p class=\"ms-2\">" . date('d.m.Y', strtotime($newsItem["DATE"])) . "</p>";
+        echo "<a class=\"nav-point m-0 p-0 ms-2\" href=\"index.php?include=admin&site=newslist&newsid=" . $newsItem["ID"] . "\">bearbeiten</a>";
+        echo "<a class=\"nav-point m-0 p-0 ms-2 text-danger\" href=\"index.php?include=admin&site=newslist&delete=" . $newsItem["ID"] . "\">löschen</a>";
         echo "</div>";
     }
     echo "</div>";

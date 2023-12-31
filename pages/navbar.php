@@ -35,7 +35,7 @@
                     echo "</div>";
                 }
                 ?>
-                <a type="button" class="btn btn-gold" href="">Jetzt Buchen!</a>
+                <a type="button" class="btn btn-gold" href="index.php?include=booking">Jetzt Buchen!</a>
             </div>
             <!--Upper Ends-->
         </div>
@@ -44,7 +44,7 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-lignt">
         <div class="container-md">
             <div class="d-flex d-sm-none justify-content-center">
-                <a type="button" class="btn btn-gold cblue" href="">Jetzt Buchen!</a>
+                <a type="button" class="btn btn-gold cblue" href="index.php?include=booking">Jetzt Buchen!</a>
             </div>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

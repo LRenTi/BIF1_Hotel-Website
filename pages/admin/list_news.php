@@ -27,16 +27,39 @@
     }
     
     echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
-    foreach($news as $newsItem)
+    foreach($news as $index => $newsItem)
     {
-        echo "<div class=\"d-flex\">";
-        echo "<p class=\"fw-bold\">" . $newsItem["TITLE"] . " </p>";
-        echo "<p class=\"ms-2\">" . date('d.m.Y', strtotime($newsItem["DATE"])) . "</p>";
-        echo "<a class=\"nav-point m-0 p-0 ms-2\" href=\"index.php?include=admin&site=newslist&newsid=" . $newsItem["ID"] . "\">bearbeiten</a>";
-        echo "<a class=\"nav-point m-0 p-0 ms-2 text-danger\" href=\"index.php?include=admin&site=newslist&delete=" . $newsItem["ID"] . "\">löschen</a>";
+        echo "<div class=\"\">";
+        echo "<div class=\"d-flex m-0\">";
+        echo "<p class=\"fw-bold m-0\">" . $newsItem["TITLE"] . " </p>";
+        echo "<p class=\"m-0 ms-2\">" . date('d.m.Y', strtotime($newsItem["DATE"])) . "</p>";
         echo "</div>";
+        echo "<div class=\"d-flex\">";
+        echo "<a class=\"nav-point m-0 p-0 ms-3\" href=\"index.php?include=admin&site=newslist&newsid=" . $newsItem["ID"] . "\">bearbeiten</a>";
+        echo "<a class=\"nav-point m-0 p-0 ms-2 text-danger\" href=\"index.php?include=admin&site=newslist&delete=" . $newsItem["ID"] . "\" onclick=\"return confirm('Are you sure you want to delete this news?');\">löschen</a>";
+        echo "</div>";
+        echo "</div>";
+        if ($index < count($news) - 1) {
+            echo "<hr>";
+        }
     }
     echo "</div>";
 
+    if (isset($_GET["delete"]))
+    {
+        $deleteNewsId = $_GET["delete"];
+        $sel = $mysql->prepare("SELECT * FROM NEWS WHERE ID = :id");
+        $sel->bindParam(':id', $deleteNewsId);
+        $sel->execute();
+        $news = $sel->fetch(PDO::FETCH_ASSOC);
+        $image = $news["IMAGE"];
+        unlink($image);
+        $stmt = $mysql->prepare("DELETE FROM NEWS WHERE ID = :id");
+        $stmt->bindParam(':id', $deleteNewsId);
+        $stmt->execute();
+
+        echo "<script>alert('News deleted successfully!');</script>";
+        echo "<script>window.location.href = 'index.php?include=admin&site=newslist';</script>";
+    }
     ?>
 </div>

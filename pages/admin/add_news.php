@@ -10,7 +10,7 @@ if(isset($_FILES["picture"]))
         move_uploaded_file($_FILES["picture"]["tmp_name"], $destination);
         
         // Resize image
-        $resizedDestination = "uploads/" . "resized_" . uniqid() . "_" . $_FILES["picture"]["name"];
+        $resizedDestination = "uploads/news/" . "resized_" . uniqid() . "_" . $_FILES["picture"]["name"];
         $sourceImage = imagecreatefromjpeg($destination);
         $resizedImage = imagecreatetruecolor(720, 480);
         imagecopyresized($resizedImage, $sourceImage, 0, 0, 0, 0, 720, 480, imagesx($sourceImage), imagesy($sourceImage));

@@ -1,5 +1,5 @@
 <?php
-    if($_SESSION["usernameSession"] != "admin")
+    if($_SESSION["roleSession"] != 2)
     {
         header("Location: index.php?include=login");
     }
@@ -16,7 +16,7 @@
             <div>
             <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">offene Buchungen</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Buchungsverwaltung</a>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Userverwaltung</a>
+                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=userlist">Userverwaltung</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newscreate">News erstellen</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newslist">News bearbeiten</a>
             </div>
@@ -36,7 +36,11 @@
                         if ($_GET["site"] == "newslist")
                         {
                             include("admin/list_news.php");
-                        } 
+                        }
+                        if ($_GET["site"] == "userlist")
+                        {
+                            include("admin/list_user.php");
+                        }
                     }
                     /*
                     else {

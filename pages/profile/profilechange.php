@@ -45,6 +45,7 @@
                 <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Email" id="email" name="email" value="<?php echo $user["EMAIL"]; ?>" required>
                 <label><b>Telefonnummer</b></label>
                 <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" id="telephone" name="telephone" value="<?php echo $user["TELEFON"]; ?>" required>
+                <input type="hidden" name="user_id" value="<?php echo $user["ID"] ?? ""; ?>">
                 <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Aktualisieren</button>
             </form>
         </div>
@@ -73,6 +74,7 @@
                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort" id="newpw" name="newpw" required>
                 <label><b>Neues Passwort wiederholen</b></label>
                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Neues Passwort wiederholen" id="newpw2" name="newpw2" required>
+                <input type="hidden" name="user_id" value="<?php echo $user["ID"] ?? ""; ?>">
                 <button type="submit" class="btn btn-outline cblue mb-3 mt-2" name="submit">Passwort ändern</button>
             </form>
             <?php echo $msg ?>

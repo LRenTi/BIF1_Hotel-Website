@@ -25,6 +25,8 @@
         echo "<h3 class=\"mt-2\" >Keine News vorhanden!</h3>";
         exit();
     }
+
+
     
     echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
     foreach($news as $index => $newsItem)
@@ -36,7 +38,7 @@
         echo "</div>";
         echo "<div class=\"d-flex\">";
         echo "<a class=\"nav-point m-0 p-0 ms-3\" href=\"index.php?include=admin&site=newslist&newsid=" . $newsItem["ID"] . "\">bearbeiten</a>";
-        echo "<a class=\"nav-point m-0 p-0 ms-2 text-danger\" href=\"index.php?include=admin&site=newslist&delete=" . $newsItem["ID"] . "\" onclick=\"return confirm('Are you sure you want to delete this news?');\">löschen</a>";
+        echo "<a class=\"nav-point m-0 p-0 ms-2 text-danger\" href=\"index.php?include=admin&site=newslist&delete=" . $newsItem["ID"] . "\" onclick=\"return confirm('Bist du dir sicher, dass die News löschen möchtest? " . $newsItem["TITLE"] . "');\">löschen</a>";
         echo "</div>";
         echo "</div>";
         if ($index < count($news) - 1) {
@@ -58,7 +60,7 @@
         $stmt->bindParam(':id', $deleteNewsId);
         $stmt->execute();
 
-        echo "<script>alert('News deleted successfully!');</script>";
+        echo "<script>alert('News erfolgreich gelöscht!');</script>";
         echo "<script>window.location.href = 'index.php?include=admin&site=newslist';</script>";
     }
     ?>

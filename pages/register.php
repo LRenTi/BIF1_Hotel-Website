@@ -16,14 +16,16 @@
         if($count == 0){
             // Username ist noch nicht vergeben
             if($_POST["pw"] == $_POST["pw2"]){
+                $role = 1; // Standardrolle 1 = User; 2 = Admin; -1 = gesperrt
                 // User anlegen
-                $stmt = $mysql->prepare("INSERT INTO ACCOUNTS (USERNAME, EMAIL, ANREDE, VORNAME, NACHNAME, TELEFON, PASSWORD) VALUES (:user, :mail, :anrede, :vorname, :nachname, :telefonnummer, :pw)");
+                $stmt = $mysql->prepare("INSERT INTO ACCOUNTS (USERNAME, EMAIL, ANREDE, VORNAME, NACHNAME, TELEFON, PASSWORD, ROLE) VALUES (:user, :mail, :anrede, :vorname, :nachname, :telefonnummer, :pw, :role)");
                 $stmt->bindPARAM(":user", $_POST["username"]);
                 $stmt->bindPARAM(":mail", $_POST["mail"]);
                 $stmt->bindPARAM(":anrede", $_POST["anrede"]);
                 $stmt->bindPARAM(":vorname", $_POST["Vorname"]);
                 $stmt->bindPARAM(":nachname", $_POST["Nachname"]);
-                $stmt->bindPARAM(":telefonnummer", $_POST["telephone"]);                
+                $stmt->bindPARAM(":telefonnummer", $_POST["telephone"]);    
+                $stmt->bindPARAM(":role", $role );            
                 $hash = password_hash($_POST["pw"], PASSWORD_BCRYPT);
                 $stmt->bindPARAM(":pw", $hash);
                 $stmt->execute();

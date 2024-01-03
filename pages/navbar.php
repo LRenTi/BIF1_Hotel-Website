@@ -70,7 +70,7 @@
                 <?php
                 if (isset($_SESSION["usernameSession"])) {
                     echo "<div class=\"d-flex d-sm-none justify-content-center\">";
-                    if ($_SESSION["usernameSession"] == "admin") {
+                    if ($_SESSION["roleSession"] == 2) {
                         echo "<a type=\"button\" class=\"btn btn-red cblue ms-2\" href=\"index.php?include=admin\">Admin</a></li>";
                     }
                     echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>";
@@ -82,7 +82,7 @@
             <?php
             if (isset($_SESSION["usernameSession"])) {
                 echo "<div class=\"d-none d-sm-flex justify-content-end\">";
-                if ($_SESSION["usernameSession"] == "admin") {
+                if ($_SESSION["roleSession"] == 2) {
                     echo "<a type=\"button\" class=\"btn btn-red cblue ms-2\" href=\"index.php?include=admin\">Admin</a></li>";
                 }
                 echo "<a type=\"button\" class=\"btn btn-outline cblue ms-2\" href=\"index.php?include=profile\">Profil</a>";

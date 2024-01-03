@@ -8,12 +8,16 @@
         $count = $stmt->rowCount();
         if($count >= 1){
             $row = $stmt->fetch();
-            if(password_verify($_POST["pw"], $row["PASSWORD"])){
-                $_SESSION["usernameSession"] = $row["USERNAME"];
-                header("Refresh:0");
-                header('Location: \index.php?include=home');
-            } 
-            else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
+            if($row["ROLE"] == -1){
+                $msg = "<p style=\"color:red\">Dieser Account ist deaktiviert!</p>";
+            }
+            else if(password_verify($_POST["pw"], $row["PASSWORD"])){
+                    $_SESSION["usernameSession"] = $row["USERNAME"];
+                    $_SESSION["roleSession"] = $row["ROLE"];
+                    header("Refresh:0");
+                    header('Location: \index.php?include=home');
+                } 
+                else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
         }
         else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
     }

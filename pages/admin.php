@@ -14,7 +14,9 @@
             <h1 class="text-center mt-3 fw-bold">Adminsection</h1>
 
             <div>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Buchungen</a>
+            <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">offene Buchungen</a>
+                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Buchungsverwaltung</a>
+                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Userverwaltung</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newscreate">News erstellen</a>
                 <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newslist">News bearbeiten</a>
             </div>
@@ -38,7 +40,7 @@
                     }
                     /*
                     else {
-                        include("admin/.php");
+                        include("admin/.php"); // offene Buchungen
                     }*/
 
             ?>

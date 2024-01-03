@@ -5,8 +5,7 @@
     </head>
     <body>
         <div class="container-md">
-            <h1 class="cblue mt-3 fw-bold">Aktuelles</h1>
-
+            
             <?php
             require("php/mysql.php");
 
@@ -17,6 +16,9 @@
             if (count($news) == 0)
             {
                 echo "<h3 class=\"mt-2\" >Keine News vorhanden!</h3>";
+            }
+            else {
+                echo "<h1 class=\"cblue mt-3 fw-bold\">Aktuelles</h1>";
             }
 
             foreach($news as $newsItem)

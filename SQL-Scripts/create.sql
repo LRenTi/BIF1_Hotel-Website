@@ -28,9 +28,9 @@ create table ROOMS (
     IMAGE varchar(255) not null
 )
 
-INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Einzelzimmer', 1, 50, "uploads/rooms/1.jpg")
-INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Doppelzimmer', 2, 80, "uploads/rooms/2.jpg")
-INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Suite', 3, 120, "uploads/rooms/3.jpg")
+INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Einzelzimmer', 1, 50, "uploads/rooms/HotelRoom1.jpg");
+INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Doppelzimmer', 2, 80, "uploads/rooms/HotelRoom2.jpg");
+INSERT INTO ROOMS (NAME, TYPE, PRICE, IMAGE) VALUES ('Suite', 3, 120, "uploads/rooms/HotelRoom3.png");
 
 create table BOOKINGS (
     ID int not null AUTO_INCREMENT primary key,
@@ -43,6 +43,7 @@ create table BOOKINGS (
     BREAKFAST boolean not null,
     PARKING boolean not null,
     PETS boolean not null,
+    TOTAL_PRICE int not null,
     FOREIGN KEY (ROOM_ID) REFERENCES ROOMS(ID),
     FOREIGN KEY (USER_ID) REFERENCES ACCOUNTS(ID)
 )

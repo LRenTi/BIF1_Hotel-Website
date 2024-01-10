@@ -15,6 +15,7 @@
                     $_SESSION["usernameSession"] = $row["USERNAME"];
                     $_SESSION["idSession"] = $row["ID"];
                     $_SESSION["roleSession"] = $row["ROLE"];
+                    $_SESSION["userIDSession"] = $row["ID"];
                     header("Refresh:0");
                     header('Location: \index.php?include=home');
                 } 

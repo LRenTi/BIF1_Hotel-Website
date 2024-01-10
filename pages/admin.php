@@ -4,21 +4,19 @@
         header("Location: index.php?include=login");
     }
 ?>
-<!DOCTYPE html>
-<html>
     <head>
         <title>Admin</title>
     </head>
     <body>
-        <div class="container-md">
+        <div class="container-md min-vh-100">
             <h1 class="text-center mt-3 fw-bold">Adminsection</h1>
 
-            <div>
-            <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">offene Buchungen</a>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=">Buchungsverwaltung</a>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=userlist">Userverwaltung</a>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newscreate">News erstellen</a>
-                <a type="button" class="btn btn-gold" href="index.php?include=admin&site=newslist">News bearbeiten</a>
+            <div class="d-flex justify-content-center align-items-center">
+                <a type="button" class="btn btn-gold me-1" href="index.php?include=admin&site=openbookinglist">offene Buchungen</a>
+                <a type="button" class="btn btn-gold me-1" href="index.php?include=admin&site=">Buchungsverwaltung</a>
+                <a type="button" class="btn btn-gold me-1" href="index.php?include=admin&site=userlist">Userverwaltung</a>
+                <a type="button" class="btn btn-gold me-1" href="index.php?include=admin&site=newscreate">News erstellen</a>
+                <a type="button" class="btn btn-gold me-1" href="index.php?include=admin&site=newslist">News bearbeiten</a>
             </div>
 
             <?php
@@ -41,11 +39,15 @@
                         {
                             include("admin/list_user.php");
                         }
+                        if ($_GET["site"] == "openbookinglist")
+                        {
+                            include("admin/list_open_bookings.php");
+                        }
                     }
-                    /*
+
                     else {
-                        include("admin/.php"); // offene Buchungen
-                    }*/
+                        include("admin/list_open_bookings.php");
+                    }
 
             ?>
         </div>

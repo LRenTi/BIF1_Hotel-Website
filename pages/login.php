@@ -13,6 +13,7 @@
             }
             else if(password_verify($_POST["pw"], $row["PASSWORD"])){
                     $_SESSION["usernameSession"] = $row["USERNAME"];
+                    $_SESSION["idSession"] = $row["ID"];
                     $_SESSION["roleSession"] = $row["ROLE"];
                     header("Refresh:0");
                     header('Location: \index.php?include=home');

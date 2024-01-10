@@ -4,7 +4,7 @@
         <title>Willkommen im L&A Hotel!</title>
     </head>
 <body>
-  <section class="d-flex justify-content-center bghome overlay" style="background-image: url(content/pictures/StockHoteldark50.png);">
+  <section class="d-flex justify-content-center bghome overlay" style="background-image: url(content/pictures/StockHoteldark50.png); min-height:100vh;">
     <div class="overlay"></div>
     <div>
       <?php

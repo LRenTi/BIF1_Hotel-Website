@@ -6,8 +6,8 @@
     <div class="d-flex align-items-center justify-content-center">
         <h1 class="fw-bold mt-3">FAQs</h1>
     </div>
-    <body>
-        <section class="container pt-3">
+    <body class="vh-100">
+        <section class="container pt-3 min-vh-100">
             <h3 class="text-center"><b>Willkommen bei unseren FAQs! </br> Ihrem Informationszentrum für alle Fragen rund um unser Hotel! </b></h3>
                 <p>
                     Bei uns stehen Ihre Bedürfnisse an erster Stelle, und wir möchten sicherstellen, dass Ihr Aufenthalt so angenehm wie möglich ist. 

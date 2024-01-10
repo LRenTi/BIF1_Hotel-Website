@@ -7,8 +7,6 @@ $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html>
 <head>
     <title>Dein Profil</title>
 </head>
@@ -48,4 +46,3 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
         ?>
     </div>
 </body>
-</html>

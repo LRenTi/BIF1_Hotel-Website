@@ -51,11 +51,11 @@
                             if(isset($_SESSION["usernameSession"])){
                                 echo 
                                 "<div class=\"align-self-end\">
-                                <button type=\"submit\" value=\"" . $roomItem["ID"] . "\" class=\"btn btn-outline cblue mb-3 mt-2\" name=\"roomid\">Verfügbarkeit überprüfen</button>
+                                <button type=\"submit\" value=\"" . $roomItem["ID"] . "\" class=\"btn btn-outline cblue mb-3 mt-2\" name=\"roomid\">Buchen</button>
                                 </div>";
-                            }else{
-                                echo "<p>Bitte loggen Sie sich ein, um ein Zimmer zu buchen.</p>
-                                <div class=\"align-self-end\"><a href=\"index.php?include=login\" class=\"btn btn-outline cblue mb-3 mt-2\">Login</a></div>";
+                            }else{ // Login fehlt
+                                echo "<p>Bitte loggen Sie sich ein, um ein Zimmer zu buchen.</p>";
+                                echo "<div class=\"align-self-end\"><a href=\"index.php?include=login\" class=\"btn btn-outline cblue mb-3 mt-2\">Login</a></div>";
                             }
                             echo "</div>"; 
                     echo "</div>";
@@ -83,14 +83,17 @@ if(isset($_POST["roomid"])){
 
     $available = true;
 
+    if($startdate >= $enddate){
+        $available = false;
+    }
+
     foreach($bookings as $index => $booking){
         $bookingStart = strtotime($booking["START_DATE"]); // Modify column name to START_DATE
         $bookingEnd = strtotime($booking["END_DATE"]); // Modify column name to END_DATE
-
+        
         if($startdate >= $bookingStart && $startdate <= $bookingEnd){
             $available = false;
         }
-
         if($enddate >= $bookingStart && $enddate <= $bookingEnd){
             $available = false;
         }
@@ -124,19 +127,25 @@ if(isset($_POST["roomid"])){
                 $parking = 0;
                 $stmt->bindParam(":parking", $parking);
             }
-            $total = $room["PRICE"] * (strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400;
-            if($_POST["breakfast"] == "true")$total += 10*(strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400;
-            if($_POST["pets"] == "true")$total += 10*(strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400; 
-            if($_POST["parking"] == "true")$total += 10*(strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400;
+            $total = $room["PRICE"] * ((strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400);
+            if($_POST["breakfast"] == "true"){
+                $total += 10*((strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400);
+            }
+            if($_POST["pets"] == "true"){
+                $total += 10*((strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400);
+            }
+            if($_POST["parking"] == "true"){
+                $total += 10*((strtotime($_POST["enddate"]) - strtotime($_POST["startdate"])) / 86400);
+            }
             $stmt->bindParam(":totalprice", $total);
             $stmt->execute();
 
             echo "<script>alert(\"Buchung erfolgreich!\");</script>";
         }else{
-            echo "<script>alert(\"Bitte loggen Sie sich ein, um ein Zimmer zu buchen.\");</script>";
+            echo "<script>alert(\"Bitte loggen Sie sich ein, um ein Zimmer zu buchen.\");</script>"; // Eingeloggt fehlt
         }
     }else{
-        echo "<script>alert(\"Buchung nicht möglich!\");</script>";
+        echo "<script>alert(\"Buchung zu diesen Zeitangaben nicht möglich\");</script>";
     }
 }
 

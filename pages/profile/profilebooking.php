@@ -14,7 +14,7 @@
 
                 <?php
 
-                require("php/mysql.php");
+                require("php/dbaccess.php");
 
                 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'start_date';
 
@@ -42,6 +42,7 @@
                                 echo "<th scope=\"col\">Enddatum</th>";
                                 echo "<th scope=\"col\">Zusatz</th>";
                                 echo "<th scope=\"col\">Gesamtpreis</th>";
+                                echo "<th scope=\"col\">Buchungsdatum</th>";
                             echo "</tr>";
                             echo "<tr>";
                                 echo "<td><p class=\"m-0 fw-bold\">" . $booking["ID"] . "</p></td>";
@@ -81,6 +82,7 @@
                                 echo "</td>";
 
                                 echo "<td><p class=\"m-0 ms-2 cblue\">" . $booking["TOTAL_PRICE"] . ",- €</p></td>";
+                                echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["TIMESTAMP"])) . " </p></td>";
                             echo "</tr>";
                         echo "</table>";
                         echo "</div>";

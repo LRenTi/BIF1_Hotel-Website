@@ -1,6 +1,6 @@
 <?php
 
-require("php/mysql.php");
+require("php/dbaccess.php");
 
 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'start_date';
 

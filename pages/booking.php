@@ -1,5 +1,5 @@
 <?php
-    require("php/mysql.php");
+    require("php/dbaccess.php");
     $stmt = $mysql->prepare("SELECT * FROM ROOMS");
     $stmt->execute();
     $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);

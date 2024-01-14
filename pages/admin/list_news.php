@@ -5,7 +5,7 @@
     if (isset($_GET["newsid"]))
     {
         $newsid = $_GET["newsid"];
-        require_once("php/mysql.php");
+        require_once("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM NEWS WHERE ID = :newsid");
         $stmt->bindParam(':newsid', $newsid);
         $stmt->execute();
@@ -14,7 +14,7 @@
         include ("edit_news.php");
     }
 
-    require("php/mysql.php");
+    require("php/dbaccess.php");
 
     $stmt = $mysql->prepare("SELECT * FROM NEWS ORDER BY DATE DESC");
     $stmt->execute();

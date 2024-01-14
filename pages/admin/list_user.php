@@ -4,7 +4,7 @@
     if (isset($_GET["profile"]))
     {
         $profileid = $_GET["profile"];
-        require_once("php/mysql.php");
+        require_once("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE ID = :profileid");
         $stmt->bindParam(':profileid', $profileid);
         $stmt->execute();
@@ -15,7 +15,7 @@
 
     ?><h2 class="mt-3 fw-bold text-center">Userverwaltung</h2><?php
 
-    require("php/mysql.php");
+    require("php/dbaccess.php");
 
     $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS ORDER BY ID ASC");
     $stmt->execute();

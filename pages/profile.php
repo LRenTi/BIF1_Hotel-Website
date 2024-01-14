@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../php/mysql.php");
+require_once(__DIR__ . "/../php/dbaccess.php");
 $username = $_SESSION["usernameSession"];
 $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :username");
 $stmt->bindParam(':username', $username);

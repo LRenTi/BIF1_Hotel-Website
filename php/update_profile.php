@@ -1,7 +1,7 @@
 <?php
 // Script zum Profildaten ändern
 session_start();
-require("mysql.php");
+require("dbaccess.php");
 
 // Daten aus dem Formular holen
 $username = $_POST["username"];

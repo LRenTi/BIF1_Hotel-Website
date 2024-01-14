@@ -7,7 +7,7 @@
         <div class="container-md">
             
             <?php
-                require("php/mysql.php");
+                require("php/dbaccess.php");
 
                 $stmt = $mysql->prepare("SELECT * FROM NEWS ORDER BY DATE DESC");
                 $stmt->execute();

@@ -1,7 +1,7 @@
 <?php
     $msg = "";
     if(isset($_POST["submit"])){
-        require("php/mysql.php");
+        require("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user");
         $stmt->bindPARAM(":user", $_POST["username"]);
         $stmt->execute();

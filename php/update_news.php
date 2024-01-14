@@ -1,5 +1,5 @@
 <?php
-require("mysql.php");
+require("dbaccess.php");
 
 if(isset($_POST["submit"])){
     $stmt = $mysql->prepare("UPDATE NEWS SET TITLE = :title, TEXT = :content, DATE = :date, IMAGE = :image WHERE ID = :id");

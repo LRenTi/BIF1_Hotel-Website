@@ -18,7 +18,7 @@
                     echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=register\">Register</a>";
                     echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=login\">Login</a>";
                 } else {
-                    require_once(__DIR__ . "/../php/mysql.php");
+                    require_once(__DIR__ . "/../php/dbaccess.php");
                     $username = $_SESSION["usernameSession"];
                     $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :username");
                     $stmt->bindParam(':username', $username);

@@ -1,7 +1,7 @@
 <?php
 // Script um passwort zu ändern
 session_start();
-require("mysql.php");
+require("dbaccess.php");
 
 // Daten aus dem Formular holen
 $username = $_POST["username"];

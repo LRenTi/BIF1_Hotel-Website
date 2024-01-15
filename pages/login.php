@@ -1,16 +1,21 @@
 <?php
     $msg = "";
+
+    // Login logik wenn submit gedrückt wird
     if(isset($_POST["submit"])){
         require("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user");
         $stmt->bindPARAM(":user", $_POST["username"]);
         $stmt->execute();
         $count = $stmt->rowCount();
+        // Wenn ein Account gefunden wurde
         if($count >= 1){
             $row = $stmt->fetch();
+            // Wenn der Account deaktiviert ist
             if($row["ROLE"] == -1){
                 $msg = "<p style=\"color:red\">Dieser Account ist deaktiviert!</p>";
             }
+            // Wenn der Account aktiv ist
             else if(password_verify($_POST["pw"], $row["PASSWORD"])){
                     $_SESSION["usernameSession"] = $row["USERNAME"];
                     $_SESSION["idSession"] = $row["ID"];
@@ -19,8 +24,9 @@
                     header("Refresh:0");
                     header('Location: \index.php?include=home');
                 } 
+                // Wenn das Passwort nicht stimmt
                 else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
-        }
+        } // Wenn kein Account gefunden wurde
         else { $msg = "<p style=\"color:red\">Passwort und Login stimmen nicht überein!</p>"; }
     }
 ?>

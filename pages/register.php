@@ -7,6 +7,7 @@
 
     <?php
     $msg = "";
+    // Wenn der submit button gedrückt wurde
     if(isset($_POST["submit"])){
         require("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user"); // Username überprüfen

@@ -8,7 +8,7 @@
         }
     ?>
     <div class="ms-3">
-        <form class="mb-3" action="./php/update_news.php" enctype="multipart/form-data" method="post">
+        <form class="mb-3" action="./php/update_news.php" enctype="multipart/form-data" method="post"> <!-- // Hier wird die Seite aufgerufen die die News aktualisiert -->
             <label class="fw-bold">Title</label> </br>
             <input type="text" class="form-control mb-2" name="title" value="<?php echo $news["TITLE"] ?? ""; ?>"> </br>
             <label class="fw-bold">Content</label>

@@ -20,7 +20,7 @@
             </div>
 
             <?php
-
+                // Wenn oben ein link geklickt wird dann wird der GET Parameter "site" gesetzt und die passende seite included
                 if (!isset($_GET["site"]) && isset($_COOKIE["siteCookie"]))
                 {
                     $_GET["site"] = $_COOKIE["siteCookie"];
@@ -45,7 +45,7 @@
                         }
                     }
 
-                    else {
+                    else { // Wenn kein GET Parameter gesetzt ist
                         include("admin/list_open_bookings.php");
                     }
 

@@ -1,6 +1,7 @@
 <?php
 require("dbaccess.php");
 
+// Wenn der submit button gedrückt wurde dann News Updaten
 if(isset($_POST["submit"])){
     $stmt = $mysql->prepare("UPDATE NEWS SET TITLE = :title, TEXT = :content, DATE = :date, IMAGE = :image WHERE ID = :id");
     $stmt->bindParam(":title", $_POST["title"]);
@@ -10,6 +11,7 @@ if(isset($_POST["submit"])){
 
     $id = $_POST["news_id"];
 
+    // News aus der Datenbank holen
     $sel = $mysql->prepare("SELECT * FROM NEWS WHERE ID = :newsid");
     $sel->bindParam(':newsid', $_POST["news_id"]);
     $sel->execute();

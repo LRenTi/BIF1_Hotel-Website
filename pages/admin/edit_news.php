@@ -1,4 +1,5 @@
 <div class="container-md ">
+    <a href="index.php?include=admin&site=newslist" class="btn btn-outline cblue ">Zurück</a>
     <h3 class="mt-3 fw-bold"> <?php echo $news["TITLE"] ?? ""; ?></h3>
     <?php 
         if(isset($_GET["msg"])){

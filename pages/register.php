@@ -7,6 +7,13 @@
 
     <?php
     $msg = "";
+    $username = "";
+    $mail = "";
+    $anrede = "";
+    $vorname = "";
+    $nachname = "";
+    $telephone = "";
+
     if(isset($_POST["submit"])){
         require("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user"); // Username überprüfen
@@ -29,11 +36,24 @@
                 $hash = password_hash($_POST["pw"], PASSWORD_BCRYPT);
                 $stmt->bindPARAM(":pw", $hash);
                 $stmt->execute();
-                $msg = "<p style=\"color:green;\">Registrierung erfolgreich!</p>";
-            } 
-            else { $msg = "<p style=\"color:green;\">Passwörter stimmen nicht überein"; }
-        } 
-    else { $msg = "Username bereits vergeben";}
+                $msg = "<p class=\"fw-bold\"style=\"color:green;\">Registrierung erfolgreich!</p>";
+            } else {
+                $msg = "<p style=\"color:red;\">Passwörter stimmen nicht überein</p>";
+                $username = $_POST["username"];
+                $mail = $_POST["mail"];
+                $anrede = $_POST["anrede"];
+                $vorname = $_POST["Vorname"];
+                $nachname = $_POST["Nachname"];
+                $telephone = $_POST["telephone"];
+            }
+        } else {
+            $msg = "<p style=\"color:red;\">Username bereits vergeben</p>";
+            $mail = $_POST["mail"];
+            $anrede = $_POST["anrede"];
+            $vorname = $_POST["Vorname"];
+            $nachname = $_POST["Nachname"];
+            $telephone = $_POST["telephone"];
+        }
     }
     ?>
 
@@ -45,16 +65,16 @@
                 <?php echo $msg ?>
                 <form method="post">
                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" name="username" required>
-                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" name="mail" required>                            
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Benutzername" name="username" value="<?php echo $username ?>" required>
+                                <input type="email" class="text-center form-control mb-3" style="width: 15rem;"placeholder="Email" name="mail" value="<?php echo $mail ?>" required>                            
                                 <select class="text-center form-control mb-3" style="width: 7.5rem;" placeholder="Anrede" id="anrede" name="anrede" required>
-                                    <option id="male">Herr</option>
-                                    <option id="female">Frau</option>
-                                    <option id="divers">ohne Anrede</option>
+                                    <option id="male" <?php if($anrede == "Herr") echo "selected" ?>>Herr</option>
+                                    <option id="female" <?php if($anrede == "Frau") echo "selected" ?>>Frau</option>
+                                    <option id="divers" <?php if($anrede == "ohne Anrede") echo "selected" ?>>ohne Anrede</option>
                                 </select>
-                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" name="Vorname" required>
-                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" name="Nachname" required>
-                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" name="telephone" required>
+                                <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Vorname" name="Vorname" value="<?php echo $vorname ?>" required>
+                                <input type="text" class="text-center form-control mb-3"style="width: 15rem;" placeholder="Nachname" name="Nachname" value="<?php echo $nachname ?>" required>
+                                <input type="telephone" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Telefonnummer" name="telephone" value="<?php echo $telephone ?>" required>
                                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort" name="pw" required>
                                 <input type="password" class="text-center form-control mb-3" style="width: 15rem;"  placeholder="Passwort wiederholen" name="pw2" required>
                                 <button type="submit" class="btn btn-blue" style="width: 15rem;" name="submit">Registrieren</button>

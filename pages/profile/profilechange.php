@@ -6,6 +6,7 @@
         <div class="col">
             <h3>Dein Profil ändern</h3>
             <?php
+            // Wenn GET Parameter "msg" gesetzt ist dann ...
             if(isset($_GET["msg"]))
 			{
 
@@ -21,6 +22,7 @@
                 <label><b>Anrede</b></label>
                 <select class="text-center form-control mb-3" style="width: 15rem;" placeholder="Anrede" id="anrede" name="anrede" value="<?php echo $user["ANREDE"]; ?>"required>
                 <?php
+                // Unterscheidet die Anrede des Users und setzt diese als selected
                 if($user["ANREDE"] == "Herr"){
                     echo "<option id=\"male\" selected>Herr</option>";
                     echo "<option id=\"female\">Frau</option>";
@@ -52,16 +54,21 @@
         <div class="col">
             <h3>Passwort ändern</h3>
             <?php
+                // Wenn GET Parameter "msg" gesetzt ist dann ...
                 if(isset($_GET["msg"])){
+                    // Wenn GET Parameter "msg" gleich "pwsuccess" dann ...
                     if ($_GET["msg"] == "pwsuccess") {
                         echo "<p style=\"color:green\">Passwort erfolgreich aktualisiert!</p>";
                     }
+                    // Wenn GET Parameter "msg" gleich "pwdiverge" dann ...
                     if ($_GET["msg"] == "pwdiverge") {
                         echo "<p style=\"color:red\">Neue passwörter stimmen nicht überein!</p>";
                     }
+                    // Wenn GET Parameter "msg" gleich "pwwrong" dann ...
                     if ($_GET["msg"] == "pwwrong") {
                         echo "<p style=\"color:red\">Altes Passwort ist falsch!</p>";
                     }
+                    // Wenn GET Parameter "msg" gleich "pwsame" dann ...
                     if ($_GET["msg"] == "pwsame") {
                         echo "<p style=\"color:red\">Neues Passwort darf nicht gleich dem alten sein!</p>";
                     }

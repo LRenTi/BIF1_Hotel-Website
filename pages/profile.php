@@ -1,4 +1,11 @@
 <?php
+// Wenn nicht eingeloggt dann ...
+if(!isset($_SESSION["usernameSession"]))
+{
+    header("Location: index.php?include=login");
+}
+
+// Wenn eingeloggt dann holt er sich die Accounts-Daten aus der Datenbank
 require_once(__DIR__ . "/../php/dbaccess.php");
 $username = $_SESSION["usernameSession"];
 $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :username");
@@ -22,6 +29,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <?php
 
+        // Wenn oben ein link geklickt wird dann wird der GET Parameter "site" gesetzt und die passende seite included
         if (!isset($_GET["site"]) && isset($_COOKIE["siteCookie"]))
         {
             $_GET["site"] = $_COOKIE["siteCookie"];
@@ -39,7 +47,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 					include("profile/profilebooking.php");
 				}
             }
-            else {
+            else { // Wenn kein GET Parameter gesetzt ist
                 include("profile/profilebooking.php");
             }
 

@@ -14,10 +14,12 @@
             <!--Upper Start-->
             <div class="navbar d-flex flex-grow-1 justify-content-end align-items-end mb-3 d-none d-sm-flex">
                 <?php
+                // Wenn nicht eingeloggt dann ...
                 if (!isset($_SESSION["usernameSession"])) {
                     echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=register\">Register</a>";
                     echo "<a type=\"button\" class=\"btn btn-outline me-2\" href=\"index.php?include=login\">Login</a>";
-                } else {
+                } else { // Wenn eingeloggt dann ...
+                    // Holt die Daten des eingeloggten Users
                     require_once(__DIR__ . "/../php/dbaccess.php");
                     $username = $_SESSION["usernameSession"];
                     $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :username");
@@ -25,6 +27,7 @@
                     $stmt->execute();
                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
                     echo "<div class=\"d-flex align-items-center text-white fw-bold\">";
+                    // Unterscheidet zwischen Herr und Frau und ohne Anrede
                     if ($user["ANREDE"] == "Herr") {
                         echo "<a class=\"nav-point text-white\"> Herr " . $user["NACHNAME"] . "</a>";
                     } else if ($user["ANREDE"] == "Frau") {
@@ -52,6 +55,7 @@
             <div class="collapse navbar-collapse" id="n_bar">
                 <div class="d-flex justify-content-start d-sm-none mt-2 mb-2">
                     <?php
+                    // Wenn nicht eingeloggt dann ...
                     if (!isset($_SESSION["usernameSession"])) {
                         echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?include=login\">Login</a>";
                         echo "<a type=\"button\" class=\"btn btn-outline cblue me-2\" href=\"index.php?include=register\">Register</a>";
@@ -68,6 +72,7 @@
                     ?>
                 </ul>
                 <?php
+                // Wenn eingeloggt dann ...
                 if (isset($_SESSION["usernameSession"])) {
                     echo "<div class=\"d-flex d-sm-none justify-content-center\">";
                     if ($_SESSION["roleSession"] == 2) {
@@ -80,6 +85,7 @@
                 ?>
             </div>
             <?php
+            // Wenn eingeloggt dann ...
             if (isset($_SESSION["usernameSession"])) {
                 echo "<div class=\"d-none d-sm-flex justify-content-end\">";
                 if ($_SESSION["roleSession"] == 2) {

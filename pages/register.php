@@ -7,13 +7,6 @@
 
     <?php
     $msg = "";
-    $username = "";
-    $mail = "";
-    $anrede = "";
-    $vorname = "";
-    $nachname = "";
-    $telephone = "";
-
     if(isset($_POST["submit"])){
         require("php/dbaccess.php");
         $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE USERNAME = :user"); // Username überprüfen

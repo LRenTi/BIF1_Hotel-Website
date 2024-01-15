@@ -1,4 +1,5 @@
 <?php
+    // Holt sich alle Zimmer aus der Datenbank und speichert in $rooms
     require("php/dbaccess.php");
     $stmt = $mysql->prepare("SELECT * FROM ROOMS");
     $stmt->execute();
@@ -20,6 +21,7 @@
         </div>
         <?php
 
+            // Schleife um alle Zimmer auszugeben jeweils in diesem Format
             foreach($rooms as $index => $roomItem){
                 echo "<div class=\"row mt-2 mb-2 p-3 border border-2 rounded\">";
                     echo "<h3>" . $roomItem["NAME"] . "</h3>";
@@ -53,7 +55,8 @@
                                 "<div class=\"align-self-end\">
                                 <button type=\"submit\" value=\"" . $roomItem["ID"] . "\" class=\"btn btn-outline cblue mb-3 mt-2\" name=\"roomid\">Buchen</button>
                                 </div>";
-                            }else{ // Login fehlt
+                            }
+                            else { // Wenn nicht eingeloggt dann ...
                                 echo "<p>Bitte loggen Sie sich ein, um ein Zimmer zu buchen.</p>";
                                 echo "<div class=\"align-self-end\"><a href=\"index.php?include=login\" class=\"btn btn-outline cblue mb-3 mt-2\">Login</a></div>";
                             }

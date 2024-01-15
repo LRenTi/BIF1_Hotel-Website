@@ -1,4 +1,5 @@
 <?php
+    // Holt sich die Account-Daten aus der Datenbank über die übergebene ID
     require_once(__DIR__ . "/../../php/dbaccess.php");
     $id = $_GET["profile"];
     $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE ID = :id");
@@ -12,6 +13,7 @@
 <div class="container-md d-flex justify-content-center row mt-2">
     <div class="col">
         <?php
+            // Wenn MSG gesetzt ist dann wird eine Nachricht ausgegeben
             if(isset($_GET["msg"]))
             {
 
@@ -21,7 +23,7 @@
                 } 
             }
             ?>
-        <form method="post" action="./php/update_profile.php">
+        <form method="post" action="./php/update_profile.php"> <!-- // Hier wird die Seite aufgerufen die das Profil aktualisiert -->
             <label><b>Benutzername</b></label>
             <input type="text" class="text-center form-control mb-3" style="width: 15rem;" placeholder="Benutzername" id="username" value="<?php echo $user["USERNAME"]; ?>" name="username" required>
             <label><b>Anrede</b></label>

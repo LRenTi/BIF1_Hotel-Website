@@ -4,6 +4,7 @@ require("php/dbaccess.php");
 
 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'start_date';
 
+// Holt sich alle offenen Buchungen aus der Datenbank und sortiert diese nach dem GET Parameter
 $stmt = $mysql->prepare("SELECT * FROM BOOKINGS WHERE STATUS = 0 ORDER BY $sortOption ASC");
 $stmt->execute();
 $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -12,8 +13,10 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
+// Wenn Buchungen vorhanden sind dann werden diese angezeigt
 if (count($bookings) > 0){
     echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
+    // Schleife um alle Buchungen auszugeben jeweils in diesem Format
     foreach($bookings as $index => $booking){
         echo "<div class=\"\">";
         echo "<div class=\"d-flex m-0\">";
@@ -30,6 +33,7 @@ if (count($bookings) > 0){
             echo "<tr>";
                 echo "<td><p class=\"m-0 fw-bold\">" . $booking["ID"] . "</p></td>";
 
+                // Daten des gebuchten Zimmers holen
                 $room = $mysql->prepare("SELECT * FROM ROOMS WHERE ID = :id");
                 $room->bindParam(":id", $booking["ROOM_ID"]);
                 $room->execute();
@@ -37,6 +41,7 @@ if (count($bookings) > 0){
 
                 echo "<td><p class=\"m-0 ms-2 cblue\">" . $roomItem["NAME"] . "</p></td>";
 
+                // Status der Buchung anzeigen
                 if($booking["STATUS"] == 0){
                     echo "<td><p class=\"fw-bold text-warning\">offen</p></td>";
                 }
@@ -49,6 +54,7 @@ if (count($bookings) > 0){
                 echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["START_DATE"])) . " </p></td>";
                 echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["END_DATE"])) . " </p></td>";
                 echo "<td class=\"d-flex justify-content-center\">";
+                // Zusatzleistungen anzeigen
                 if($booking["PARKING"] == 1 || $booking["BREAKFAST"] == 1 || $booking["PETS"] == 1){
                     if($booking["PARKING"] == 1){
                         echo "<p class=\"cblue\">P</p>";
@@ -76,6 +82,7 @@ if (count($bookings) > 0){
         
         echo "</div>";
         echo "</div>";
+        // Wenn es nicht die letzte Buchung ist dann wird ein Trennstrich angezeigt
         if ($index < count($bookings) - 1) {
             echo "<hr>";
         }
@@ -88,6 +95,7 @@ else {
     echo "</div>"; 
 }
 
+// Wenn der GET Parameter verify vorhanden ist dann wird die Buchung bestätigt
 if(isset($_GET["verify"])){
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = 1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["verify"]);
@@ -97,6 +105,7 @@ if(isset($_GET["verify"])){
     exit();
 }
 
+// Wenn der GET Parameter storno vorhanden ist dann wird die Buchung storniert
 if(isset($_GET["storno"])){
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = -1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["storno"]);

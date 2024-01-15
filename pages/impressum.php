@@ -9,8 +9,6 @@
         <h1 class="mt-3 fw-bold">Impressum & Hotelverwaltung</h1>
     </div>
     <body>
-        
-        
         <section class="container-md p-3">
             <h2 class="text-center">Hotelverwaltung</h2>            
             <div class="text center">

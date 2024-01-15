@@ -14,7 +14,7 @@
             echo("<h2 class=\"display-1 text-center t\">Herzlich Willkommen </br> im L&A Hotel!</h2>");
         }
         if(isset($_SION["usernameSession"]))
-        {ESS
+        {
             echo("<h2 class=\"display-1 text-center text-white\">Herzlich Willkommen</br>" . $_SESSION["usernameSession"] . "</br>im L&A Hotel!</h2>");
         }
       ?>

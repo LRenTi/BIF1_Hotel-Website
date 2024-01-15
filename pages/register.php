@@ -6,6 +6,14 @@
 <body>
 
     <?php
+    // Variablen für die Formularfelder um bei Fehlern die Eingaben wiederherzustellen
+    $username = "";
+    $mail = "";
+    $anrede = "";
+    $vorname = "";
+    $nachname = "";
+    $telephone = "";
+
     $msg = "";
     if(isset($_POST["submit"])){
         require("php/dbaccess.php");
@@ -32,6 +40,7 @@
                 $msg = "<p class=\"fw-bold\"style=\"color:green;\">Registrierung erfolgreich!</p>";
             } else {
                 $msg = "<p style=\"color:red;\">Passwörter stimmen nicht überein</p>";
+                // Eingaben wiederherstellen
                 $username = $_POST["username"];
                 $mail = $_POST["mail"];
                 $anrede = $_POST["anrede"];
@@ -41,6 +50,7 @@
             }
         } else {
             $msg = "<p style=\"color:red;\">Username bereits vergeben</p>";
+            // Eingaben wiederherstellen
             $mail = $_POST["mail"];
             $anrede = $_POST["anrede"];
             $vorname = $_POST["Vorname"];

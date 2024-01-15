@@ -16,6 +16,7 @@
 
                 require("php/dbaccess.php");
 
+                // Wenn kein GET Parameter gesetzt ist dann wird nach Startdatum sortiert
                 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'start_date';
 
                 $stmt = $mysql->prepare("SELECT * FROM BOOKINGS WHERE USER_ID = :userid ORDER BY $sortOption DESC");
@@ -32,6 +33,7 @@
                 echo "<div class=\"m-0 p-0 fw-bold d-flex justify-content-center align-items-center\">";
                 echo "<h3 class=\"fw-bold\">Buchungen von: " . $userItem["USERNAME"] . "</h3>";
                 echo "</div>";
+                // Wenn Buchungen vorhanden sind dann werden diese angezeigt
                 if (count($bookings) > 0) {
                     echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
                     foreach ($bookings as $index => $booking) {
@@ -126,6 +128,8 @@
 
 <?php
 
+
+// Wenn Buchung bestätigt wird
 if (isset($_GET["succes"])) {
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = 1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["succes"]);
@@ -134,6 +138,8 @@ if (isset($_GET["succes"])) {
 
     exit();
 }
+
+// Wenn Buchung storniert wird
 if (isset($_GET["storno"])) {
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = -1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["storno"]);

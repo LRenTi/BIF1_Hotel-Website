@@ -16,17 +16,19 @@
 
                 require("php/dbaccess.php");
 
+                // Wenn kein GET Parameter gesetzt ist dann wird nach Startdatum sortiert
                 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'start_date';
 
                 $stmt = $mysql->prepare("SELECT * FROM BOOKINGS ORDER BY $sortOption ASC");
                 $stmt->execute();
                 $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                
+                // Wenn Buchungen vorhanden sind dann werden diese angezeigt
                 if (count($bookings) > 0) {
                     echo "<div class=\"col-12 border border-2 rounded m-3 p-3\">";
                     foreach ($bookings as $index => $booking) {
                        
+                        // Daten des gebuchten Zimmers holen
                         $room = $mysql->prepare("SELECT * FROM ROOMS WHERE ID = :id");
                         $room->bindParam(":id", $booking["ROOM_ID"]);
                         $room->execute();
@@ -58,6 +60,7 @@
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . $userItem["USERNAME"] . "</p></td>";
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . $roomItem["NAME"] . "</p></td>";
 
+                        // Status der Buchung anzeigen
                         if ($booking["STATUS"] == 0) {
                             echo "<td><p class=\"fw-bold text-warning\">offen</p></td>";
                         }
@@ -67,6 +70,7 @@
                         if ($booking["STATUS"] == -1) {
                             echo "<td><p class=\"text-danger fw-bold\">storniert</p></td>";
                         }
+                        
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["START_DATE"])) . " </p></td>";
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["END_DATE"])) . " </p></td>";
                         echo "<td class=\"d-flex justify-content-center\">";
@@ -84,7 +88,6 @@
                             echo "<p class=\"cblue\">keine</p>";
                         }
                         echo "</td>";
-
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . $booking["TOTAL_PRICE"] . ",- €</p></td>";
                         echo "<td><p class=\"m-0 ms-2 cblue\">" . date('d. M. Y', strtotime($booking["TIMESTAMP"])) . " </p></td>";
                         echo "</tr>";
@@ -102,9 +105,9 @@
                         if ($booking["STATUS"] == -1) {
                         echo "<a href=\"index.php?include=admin&site=bookinglist&succes= " . $booking["ID"] . "\" class=\"btn btn-success cblue me-2\">Bestätigen</a>";
                         }
-
                         echo "</div>";
                         echo "</div>";
+                        // Trennlinie zwischen den einzelnen Buchungen wenn nicht die letzte Buchung
                         if ($index < count($bookings) - 1) {
                             echo "<hr>";
                         }
@@ -125,6 +128,7 @@
 
 <?php
 
+// Wenn der GET Parameter succes gesetzt ist dann wird die Buchung bestätigt
 if (isset($_GET["succes"])) {
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = 1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["succes"]);
@@ -133,6 +137,8 @@ if (isset($_GET["succes"])) {
 
     exit();
 }
+
+// Wenn der GET Parameter storno gesetzt ist dann wird die Buchung storniert
 if (isset($_GET["storno"])) {
     $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = -1 WHERE ID = :id");
     $stmt->bindParam(":id", $_GET["storno"]);

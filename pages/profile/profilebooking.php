@@ -86,9 +86,12 @@
                             echo "</tr>";
                         echo "</table>";
                         echo "</div>";
-                        echo "<div class=\"d-flex\">";
-                        
-                        echo "</div>";
+                        // Wird angezeigt wenn Buchung offen ist und storniert werden kann
+                        if($booking["STATUS"] == 0){
+                            echo "<div class=\"d-flex justify-content-end align-items-center\">";
+                                echo "<a href=\"index.php?include=profile&site=booking&cancel=" . $booking["ID"] . "\" class=\"btn btn-outline-danger ms-3 mb-3\">Buchung stornieren</a>";
+                            echo "</div>";
+                            }
                         echo "</div>";
                         if ($index < count($bookings) - 1) {
                             echo "<hr>";
@@ -106,3 +109,15 @@
         </div>
     </body>
 </html>
+
+<?php
+
+// Wenn der User eine Buchung stornieren möchte
+if(isset($_GET["cancel"])){
+    $stmt = $mysql->prepare("UPDATE BOOKINGS SET STATUS = -1 WHERE ID = :id");
+    $stmt->bindParam(":id", $_GET["cancel"]);
+    $stmt->execute();
+    header("Location: index.php?include=profile&site=booking");
+}
+
+?>

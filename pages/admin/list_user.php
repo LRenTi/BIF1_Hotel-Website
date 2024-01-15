@@ -13,6 +13,19 @@
         include ("edit_user.php");
     }
 
+    if (isset($_GET["booking"]))
+    {
+        $bookingid = $_GET["booking"];
+        require_once("php/dbaccess.php");
+        $stmt = $mysql->prepare("SELECT * FROM ACCOUNTS WHERE ID = :bookingid");
+        $stmt->bindParam(':bookingid', $bookingid);
+        $stmt->execute();
+        $booking = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        include ("userbooking.php");
+    }
+
+
     ?><h2 class="mt-3 fw-bold text-center">Userverwaltung</h2><?php
 
     require("php/dbaccess.php");
@@ -45,7 +58,7 @@
         echo "</div>";
         echo "<div class=\"d-flex\">";
         if($accItem["ROLE"] != -1){
-            echo "<a class=\"nav-point m-0 p-0 ms-3\" href=\"index.php?include=admin&site=userlist&reserve=" . $accItem["ID"] . "\">Reservierungen</a>";
+            echo "<a class=\"nav-point m-0 p-0 ms-3\" href=\"index.php?include=admin&site=userlist&booking=" . $accItem["ID"] . "\">Buchungen</a>";
             echo "<a class=\"nav-point m-0 p-0 ms-2\" href=\"index.php?include=admin&site=userlist&profile=" . $accItem["ID"] . "\">Profil</a>";
         }
         if($accItem["ROLE"] == 1){
